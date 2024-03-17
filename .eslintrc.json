@@ -1,0 +1,74 @@
+{
+  // Используем парсер TypeScript
+  "parser": "@typescript-eslint/parser",
+  // Используем плагин @typescript-eslint
+  "plugins": ["@typescript-eslint/eslint-plugin"],
+  // Расширяем стандартные правила для Next.js и TypeScript
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    // Используем Prettier для форматирования
+    "plugin:prettier/recommended"
+  ],
+  // Настройки правил
+  "rules": {
+    // Настройки Prettier
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ],
+    // Запрещаем неиспользуемые переменные в TypeScript
+    "@typescript-eslint/no-unused-vars": "error",
+    // Запрещаем использование any в TypeScript
+    "@typescript-eslint/no-explicit-any": "error",
+    // Настройки кавычек в TypeScript
+    "@typescript-eslint/quotes": [
+      "error",
+      "single",
+      {
+        "avoidEscape": true,
+        "allowTemplateLiterals": true
+      }
+    ],
+    // Запрещаем пробелы в конце строк
+    "no-trailing-spaces": [2, { "skipBlankLines": false }],
+    // Запрещаем несколько пустых строк
+    "no-multiple-empty-lines": ["error", { "max": 1, "maxBOF": 1 }],
+    // Настройки пробелов в объектных литералах
+    "object-curly-spacing": ["error", "always"],
+    // Настройки пробелов перед и после запятых
+    "comma-spacing": [2, { "before": false, "after": true }],
+    // Настройки пробелов вокруг стрелочных функций
+    "arrow-spacing": ["error", { "before": true, "after": true }],
+    // Настройки пробелов в инфиксных операциях
+    "space-infix-ops": ["error", { "int32Hint": false }],
+    // Отключаем пробелы после ключевых слов
+    "space-after-keywords": "off",
+    // Настройки пробелов вокруг ключевых слов
+    "keyword-spacing": [2, { "before": true, "after": true }],
+    // Настройки отступов в JSX
+    "react/jsx-indent": [2, 2, { "indentLogicalExpressions": true }],
+    // Настройки стиля стрелочных функций
+    "arrow-body-style": ["error", "as-needed"],
+    // Запрещаем пустые блоки
+    "padded-blocks": ["error", "never"],
+    // Запрещаем точку с запятой
+    "semi": ["error", "never"],
+    // Устанавливаем максимальную длину строки
+    "max-len": ["error", { "code": 120 }],
+    // Настройки отступов
+    "indent": ["error", 2],
+    // Настройки для самозакрывающихся компонентов в React
+    "react/self-closing-comp": [
+      "error",
+      {
+        "component": true,
+        "html": true
+      }
+    ],
+    // Настройки пробелов вокруг тегов JSX
+    "react/jsx-tag-spacing": ["error", { "beforeSelfClosing": "always" }]
+  }
+}
