@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
-import './globalStyles/globals.scss'
 import './globalStyles/normalize.css'
+import './globalStyles/globals.scss'
+import './globalStyles/header.scss'
+import './globalStyles/menu.scss'
 import Layout from './components/layouts/Layouts'
 
 export const metadata: Metadata = {

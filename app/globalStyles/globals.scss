@@ -1,7 +1,12 @@
 :root {
+  --gray: hsl(219deg 6% 49%);
+  --gray2: #a5a8ad;
   --dark-blue: #1d2533;
+  --dark-blue2: #101828;
   --white: #e8e9ea;
+  --white2: rgb(255 255 255 / 90%);
   --purple: #9466ff;
+  --purple2: #70f;
 }
 
 @font-face {
@@ -28,7 +33,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  font-family: PetrovSans-Trial-Regular;
+  font-family: PetrovSans-Trial-Regular, sans-serif;
 }
 
 a {
