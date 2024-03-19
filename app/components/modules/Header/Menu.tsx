@@ -265,14 +265,16 @@ const Menu = () => {
             )}
             {!isMedia640 && (
               <AnimatePresence>
-                <motion.ul
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className='list-reset nav-menu__accordion'
-                >
-                  <ContactsListItems />
-                </motion.ul>
+                {showContactsList && (
+                  <motion.ul
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className='list-reset nav-menu__accordion'
+                  >
+                    <ContactsListItems />
+                  </motion.ul>
+                )}
               </AnimatePresence>
             )}
             {isMedia640 && (

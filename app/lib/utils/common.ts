@@ -5,9 +5,10 @@ export const removeOverflowHiddenFromBody = () => {
 }
 
 // Функция для добавления стиля overflow:hidden к body
-export const addOverflowHiddenToBody = () => {
-  const body = document.querySelector('body') as HTMLBodyElement // Получение элемента body
-  body.classList.add('overflow-hidden') // Добавление класса overflow-hidden
+export const addOverflowHiddenToBody = (paddingRight = '') => {
+  const body = document.querySelector('body') as HTMLBodyElement
+  body.classList.add('overflow-hidden')
+  paddingRight && (body.style.paddingRight = paddingRight)
 }
 
 // Функция для получения текущей ширины окна браузера
