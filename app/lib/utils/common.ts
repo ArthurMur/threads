@@ -1,3 +1,5 @@
+import { closeSearchModal } from '@/context/modals'
+
 // Функция для удаления стиля overflow:hidden у body
 export const removeOverflowHiddenFromBody = () => {
   const body = document.querySelector('body') as HTMLBodyElement // Получение элемента body
@@ -17,4 +19,10 @@ export const getWindowWidth = () => {
     typeof window !== 'undefined' ? window : { innerWidth: 0 } // Получение ширины окна браузера
 
   return { windowWidth } // Возвращение ширины окна
+}
+
+// Функция для закрытия модального окна
+export const handleCloseSearchModal = () => {
+  closeSearchModal()
+  removeOverflowHiddenFromBody()
 }

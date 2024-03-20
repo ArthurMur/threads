@@ -5,10 +5,11 @@ import './globalStyles/header.scss'
 import './globalStyles/menu.scss'
 import './globalStyles/mobile-navbar.scss'
 import './globalStyles/catalog-menu.scss'
+import './globalStyles/search-modal.scss'
 import Layout from './components/layouts/Layout'
 
 export const metadata: Metadata = {
-  title: 'Threads',
+  title: 'Thread',
   description: 'Оnline clothing store',
 }
 
