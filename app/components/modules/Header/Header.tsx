@@ -6,6 +6,7 @@ import '@/globalStyles/header.scss'
 import { addOverflowHiddenToBody } from '@/lib/utils/common'
 import { openMenu, openSearchModal } from '@/context/modals'
 import Menu from './Menu'
+import CartPopup from './CartPopup'
 
 const Header = () => {
   const { lang, translations } = useLang()
@@ -50,10 +51,7 @@ const Header = () => {
             />
           </li>
           <li className='header__links__item'>
-            <Link
-              className='header__links__item__btn header__links__item__btn--cart'
-              href='/cart'
-            />
+            <CartPopup />
           </li>
           <li className='header__links__item header__links__item--profile'>
             <Link

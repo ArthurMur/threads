@@ -6,6 +6,7 @@ import './globalStyles/menu.scss'
 import './globalStyles/mobile-navbar.scss'
 import './globalStyles/catalog-menu.scss'
 import './globalStyles/search-modal.scss'
+import './globalStyles/cart-popup.scss'
 import Layout from './components/layouts/Layout'
 
 export const metadata: Metadata = {

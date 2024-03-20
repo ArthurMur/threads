@@ -1,6 +1,6 @@
 {
   "en": {
-    "common": { "more": "More" },
+    "common": { "more": "More", "order_price": "Order price" },
     "header": {
       "menu_btn": "Menu",
       "search_products": "Search for products",
@@ -56,7 +56,7 @@
   },
 
   "ru": {
-    "common": { "more": "Ещё" },
+    "common": { "more": "Ещё", "order_price": "Сумма заказа" },
     "header": {
       "menu_btn": "Меню",
       "search_products": "Поиск товаров",
