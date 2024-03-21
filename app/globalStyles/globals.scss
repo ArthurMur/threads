@@ -14,6 +14,11 @@
   --white3: #fff;
   --purple: #9466ff;
   --purple2: #70f;
+  --purple3: #330867;
+  --purple4: #240648;
+  --green: #16d9a6;
+  --lime: #30cfd0;
+  --blue: #4075ff;
 }
 
 @font-face {
@@ -100,4 +105,69 @@ a {
 .overflow-hidden {
   overflow-y: hidden;
   padding-right: 8px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.swiper-slide-shadow-coverflow {
+  background-image: none !important;
+}
+
+.swiper-slide-active .hero-slide-plus {
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: #70f;
+  left: 125px;
+  top: 45%;
+  background-image: url('/img/plus-big.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: 1;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+@media (width <= 1460px) {
+  .swiper-slide-active .hero-slide-plus {
+    left: 105px;
+  }
+}
+
+@media (width <= 990px) {
+  .swiper-slide-active .hero-slide-plus {
+    left: 75px;
+  }
+}
+
+@media (width <= 760px) {
+  .swiper-slide-active .hero-slide-plus {
+    top: 6%;
+    left: 195px;
+  }
+}
+
+.swiper-slide-active .slide-popup {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.2s ease-in-out,
+    visibility 0.2s ease-in-out;
 }

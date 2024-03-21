@@ -1,9 +1,5 @@
-/* eslint-disable max-len */
+import MainPage from './components/templates/MainPage/MainPage'
 
 export default function Home() {
-  return (
-    <main className='main'>
-      <h2>Контент</h2>
-    </main>
-  )
+  return <MainPage />
 }

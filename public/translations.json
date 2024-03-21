@@ -1,6 +1,6 @@
 {
   "en": {
-    "common": { "more": "More", "order_price": "Order price" },
+    "common": { "more": "More", "order_price": "Order price", "ad": "Ad" },
     "header": {
       "menu_btn": "Menu",
       "search_products": "Search for products",
@@ -52,11 +52,35 @@
       "order": "Placing an order",
       "personal_data_policy": "Data processing policy",
       "privacy_policy": "Privacy policy"
+    },
+    "main_page": {
+      "hero_hidden_title": "Clothing store thread",
+      "hero_title": "thread",
+      "hero_description": "Be in style",
+      "hero_subtitle": "with the new “Line” collection",
+      "catalog_btn": "Catalog",
+      "category_title": "Categories",
+      "category_cloth": "Cloth",
+      "category_office": "Office",
+      "category_accessories": "Accessories",
+      "category_souvenirs": "Souvenirs",
+      "bestsellers_title": "Bestsellers",
+      "new_title": "New",
+      "brand_title": "Life of our brand",
+      "brand_nature": "With care for nature",
+      "brand_look": "New look at merch",
+      "brand_idea": "Idea of the collection «Black»",
+      "is_new": "New",
+      "is_bestseller": "Bestseller",
+      "tShirt": "T-Shirt",
+      "pink": "pink",
+      "white": "white",
+      "black": "black"
     }
   },
 
   "ru": {
-    "common": { "more": "Ещё", "order_price": "Сумма заказа" },
+    "common": { "more": "Ещё", "order_price": "Сумма заказа", "ad": "Реклама" },
     "header": {
       "menu_btn": "Меню",
       "search_products": "Поиск товаров",
@@ -108,6 +132,30 @@
       "order": "Оформление заказа",
       "personal_data_policy": "Политика обработки данных",
       "privacy_policy": "Политика конфиденциальности"
+    },
+    "main_page": {
+      "hero_hidden_title": "Магазин одежды thread",
+      "hero_title": "thread",
+      "hero_description": "Будь на стиле",
+      "hero_subtitle": "с новой коллекцией «Line»",
+      "catalog_btn": "Каталог",
+      "category_title": "Категории",
+      "category_cloth": "Одежда",
+      "category_office": "Концелярия",
+      "category_accessories": "Аксесуары",
+      "category_souvenirs": "Сувениры",
+      "bestsellers_title": "Хиты",
+      "new_title": "Новинки",
+      "brand_title": "Жизнь нашего бренда",
+      "brand_nature": "C заботой о природе",
+      "brand_look": "Новый взгляд на мерч",
+      "brand_idea": "Идея колекции «Black»",
+      "is_new": "Новинка",
+      "is_bestseller": "Хит",
+      "tShirt": "Футболка",
+      "pink": "розовая",
+      "white": "белая",
+      "black": "черная"
     }
   }
 }
