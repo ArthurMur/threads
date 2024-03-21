@@ -7,10 +7,11 @@ import './globalStyles/mobile-navbar.scss'
 import './globalStyles/catalog-menu.scss'
 import './globalStyles/search-modal.scss'
 import './globalStyles/cart-popup.scss'
+import './globalStyles/footer.scss'
 import Layout from './components/layouts/Layout'
 
 export const metadata: Metadata = {
-  title: 'Thread',
+  title: 'thread',
   description: 'Оnline clothing store',
 }
 

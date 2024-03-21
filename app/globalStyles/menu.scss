@@ -182,7 +182,6 @@
   border-radius: 32px;
   border: 2px solid #565c66 !important;
   padding: 12px 24px !important;
-  font-size: 16px;
   font-weight: 500;
   color: var(--gray2);
   transition:
@@ -225,7 +224,7 @@
 
 .nav-menu__list__item__btn {
   color: var(--gray);
-  font-size: 28px;
+  font-size: 1.5em;
   font-weight: 700;
   line-height: 32px;
   transition: 0.2s ease-in-out;
@@ -246,7 +245,6 @@
 .nav-menu__accordion__item__title {
   position: relative;
   color: var(--gray);
-  font-size: 16px;
   font-weight: 400;
   transition: 0.2s ease-in-out color;
 
@@ -294,7 +292,6 @@
 
 .nav-menu__accordion__item__list__item__link {
   color: var(--white);
-  font-size: 16px;
   font-weight: 400;
   transition: 0.2s ease-in-out color;
   text-decoration: none;
@@ -307,7 +304,6 @@
 
 .nav-menu__accordion__item__link {
   color: var(--gray);
-  font-size: 16px;
   font-weight: 400;
   transition: 0.2s ease-in-out color;
   text-decoration: none;
