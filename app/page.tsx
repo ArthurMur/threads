@@ -3,7 +3,7 @@
 export default function Home() {
   return (
     <main className='main'>
-      <h1>Привет мир</h1>
+      <h2>Контент</h2>
     </main>
   )
 }

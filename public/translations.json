@@ -1,0 +1,113 @@
+{
+  "en": {
+    "common": { "more": "More", "order_price": "Order price" },
+    "header": {
+      "menu_btn": "Menu",
+      "search_products": "Search for products",
+      "search_infos": "Product name, category, type...",
+      "profile": "Profile",
+      "logout": "Logout"
+    },
+    "main_menu": {
+      "catalog": "Catalog",
+      "buyers": "For buyers",
+      "contacts": "Contacts",
+      "cloth": "Cloth",
+      "accessories": "Accessories",
+      "souvenirs": "Souvenirs",
+      "office": "Office",
+      "all": "All catalog",
+      "about": "About",
+      "blog": "Blog",
+      "shipping": "Shipping and payment",
+      "returns": "Purchase returns",
+      "tg": "Telegram",
+      "vk": "VKontakte"
+    },
+    "comparison": {
+      "umbrella": "Umbrellas",
+      "bags": "Bags",
+      "outerwear": "Outerwear",
+      "long-sleeves": "Long-sleeves",
+      "headdress": "Headdress",
+      "hoodie": "Hoodie",
+      "business-souvenirs": "Business-souvenirs",
+      "promotional-souvenirs": "Promotional-souvenirs",
+      "pen": "Pens",
+      "notebook": "Notebooks",
+      "t-shirts": "T-shirts",
+      "main_heading": "Comparison"
+    },
+    "breadcrumbs": {
+      "main": "Main",
+      "comparison": "Comparison",
+      "cart": "Cart",
+      "favorites": "Favorites",
+      "catalog": "Catalog",
+      "profile": "Profile",
+      "cloth": "Cloth",
+      "accessories": "Accessories",
+      "office": "Office",
+      "souvenirs": "Souvenirs",
+      "order": "Placing an order",
+      "personal_data_policy": "Data processing policy",
+      "privacy_policy": "Privacy policy"
+    }
+  },
+
+  "ru": {
+    "common": { "more": "Ещё", "order_price": "Сумма заказа" },
+    "header": {
+      "menu_btn": "Меню",
+      "search_products": "Поиск товаров",
+      "search_infos": "Название товара, категория, тип...",
+      "profile": "Профиль",
+      "logout": "Выйти"
+    },
+    "main_menu": {
+      "catalog": "Каталог",
+      "buyers": "Покупателям",
+      "contacts": "Контакты",
+      "cloth": "Одежда",
+      "accessories": "Аксесуары",
+      "souvenirs": "Сувениры",
+      "office": "Концелярия",
+      "all": "Весь каталог",
+      "about": "О нас",
+      "blog": "Блог",
+      "shipping": "Доставка и оплата",
+      "returns": "Возврат товара",
+      "tg": "Телеграм",
+      "vk": "Вконтакте"
+    },
+    "comparison": {
+      "umbrella": "Зонты",
+      "bags": "Сумки",
+      "outerwear": "Верхняя одежда",
+      "long-sleeves": "Лонг-сливы",
+      "headdress": "Головные уборы",
+      "hoodie": "Худи",
+      "business-souvenirs": "Бизнес-сувениры",
+      "promotional-souvenirs": "Промо-сувениры",
+      "pen": "Ручки",
+      "notebook": "Тетради",
+      "t-shirts": "Футболки",
+      "main_heading": "Сравнение"
+    },
+    "breadcrumbs": {
+      "main": "Главная",
+      "comparison": "Сравнение",
+      "cart": "Корзина",
+      "favorites": "Избранное",
+      "catalog": "Каталог",
+      "profile": "Профиль",
+      "cloth": "Одежда",
+      "accessories": "Аксесуары",
+      "office": "Концелярия",
+      "souvenirs": "Сувениры",
+      "order": "Оформление заказа",
+      "personal_data_policy": "Политика обработки данных",
+      "privacy_policy": "Политика конфиденциальности"
+    }
+  }
+}
