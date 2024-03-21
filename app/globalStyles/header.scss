@@ -21,6 +21,9 @@
   left: 50%;
   top: 8px;
   transform: translateX(-65%);
+  min-height: 65px;
+  display: flex;
+  align-items: center;
 }
 
 .header__links {
@@ -97,7 +100,7 @@
   position: relative;
   padding-left: 38px !important;
   color: var(--white);
-  font-size: 24px;
+  font-size: 1.5em;
   transition: 0.2s ease-in-out color;
   font-weight: 500;
 
