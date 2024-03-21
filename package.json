@@ -18,7 +18,8 @@
     "react-dom": "^18",
     "sass": "^1.72.0",
     "stylelint": "^16.2.1",
-    "stylelint-config-standard-scss": "^13.0.0"
+    "stylelint-config-standard-scss": "^13.0.0",
+    "swiper": "^11.0.7"
   },
   "devDependencies": {
     "@types/node": "^20",
