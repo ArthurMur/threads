@@ -19,6 +19,7 @@
   --green: #16d9a6;
   --lime: #30cfd0;
   --blue: #4075ff;
+  --border-radius: 12px;
 }
 
 @font-face {
@@ -57,6 +58,23 @@ body {
   min-height: 100vh;
   font-family: Unbounded-Regular, sans-serif;
   font-size: 16px;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--purple);
+  border-radius: 3px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: var(--purple2);
 }
 
 a {
@@ -170,4 +188,26 @@ a {
   transition:
     opacity 0.2s ease-in-out,
     visibility 0.2s ease-in-out;
+}
+
+.site-title {
+  margin: 0 0 40px;
+  color: var(--white);
+  font-size: 2.625em;
+  font-weight: 700;
+  text-align: center;
+}
+
+.transition-opacity {
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 156ms;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.duration {
+  transition-duration: 2s;
 }

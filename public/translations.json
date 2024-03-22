@@ -1,6 +1,11 @@
 {
   "en": {
-    "common": { "more": "More", "order_price": "Order price", "ad": "Ad" },
+    "common": {
+      "more": "More",
+      "order_price": "Order price",
+      "ad": "Ad",
+      "all_link": "All"
+    },
     "header": {
       "menu_btn": "Menu",
       "search_products": "Search for products",
@@ -75,7 +80,12 @@
   },
 
   "ru": {
-    "common": { "more": "Ещё", "order_price": "Сумма заказа", "ad": "Реклама" },
+    "common": {
+      "more": "Ещё",
+      "order_price": "Сумма заказа",
+      "ad": "Реклама",
+      "all_link": "Все"
+    },
     "header": {
       "menu_btn": "Меню",
       "search_products": "Поиск товаров",

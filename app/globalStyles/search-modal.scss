@@ -6,7 +6,7 @@
   left: 50%;
   transform: translateX(-50%);
   background-color: var(--gray4);
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   padding: 24px;
   z-index: 101;
 }
@@ -44,7 +44,7 @@
   width: 100%;
   border: none;
   background: rgb(255 255 255 / 6%);
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   height: 48px;
   padding-left: 20px;
   overflow: hidden;
