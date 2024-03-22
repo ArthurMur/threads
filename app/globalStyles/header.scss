@@ -2,9 +2,7 @@
   position: relative;
   z-index: 3;
   background-color: var(--dark-blue);
-  box-shadow:
-    0 2px 4px 0 rgb(0 0 0 / 20%),
-    0 0 8px 0 rgb(0 0 0 / 10%);
+  box-shadow: rgb(0 0 0 / 35%) 0 5px 15px;
 }
 
 .header__container {

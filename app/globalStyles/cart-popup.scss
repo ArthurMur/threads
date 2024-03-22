@@ -9,7 +9,7 @@
   width: 328px;
   padding: 12px;
   padding-right: 5px;
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   background-color: var(--gray8);
   transform-origin: top right;
 }

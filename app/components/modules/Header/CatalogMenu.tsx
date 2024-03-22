@@ -17,7 +17,6 @@ const CatalogMenu = () => {
   const catalogMenuIsOpen = useUnit($catalogMenuIsOpen) // Получение состояния открытости меню каталога
   const [showClothList, setShowClothList] = useState(false) // Состояние для отображения списка одежды
   const [showAccessoriesList, setShowAccessoriesList] = useState(false) // Состояние для отображения списка аксессуаров
-  const [showSouvenirsList, setShowSouvenirsList] = useState(false) // Состояние для отображения списка сувениров
   const [activeListId, setActiveListId] = useState(0) // Состояние для отслеживания активного списка
   const { lang, translations } = useLang() // Получение текущего языка и переводов
   const { itemVariants, sideVariants, popupZIndex } = useMenuAnimation(
@@ -30,21 +29,12 @@ const CatalogMenu = () => {
     // Функция для отображения списка одежды
     setShowClothList(true)
     setShowAccessoriesList(false)
-    setShowSouvenirsList(false)
   }
 
   const handleShowAccessoriesList = () => {
     // Функция для отображения списка аксессуаров
     setShowClothList(false)
     setShowAccessoriesList(true)
-    setShowSouvenirsList(false)
-  }
-
-  const handleShowSouvenirsList = () => {
-    // Функция для отображения списка сувениров
-    setShowClothList(false)
-    setShowAccessoriesList(false)
-    setShowSouvenirsList(true)
   }
 
   const handleCloseMenu = () => {
@@ -77,15 +67,6 @@ const CatalogMenu = () => {
         translations[lang].comparison.umbrella,
       ],
       handler: handleShowAccessoriesList,
-    },
-    {
-      name: translations[lang].main_menu.souvenirs,
-      id: 3,
-      items: [
-        translations[lang].comparison['business-souvenirs'],
-        translations[lang].comparison['promotional-souvenirs'],
-      ],
-      handler: handleShowSouvenirsList,
     },
   ]
   return (
@@ -174,9 +155,6 @@ const CatalogMenu = () => {
                             <CatalogMenuList items={items} />
                           )}
                           {isCurrentList(showAccessoriesList, 2) && (
-                            <CatalogMenuList items={items} />
-                          )}
-                          {isCurrentList(showSouvenirsList, 3) && (
                             <CatalogMenuList items={items} />
                           )}
                         </AnimatePresence>

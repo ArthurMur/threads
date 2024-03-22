@@ -8,6 +8,8 @@ import './globalStyles/catalog-menu.scss'
 import './globalStyles/search-modal.scss'
 import './globalStyles/cart-popup.scss'
 import './globalStyles/footer.scss'
+import './globalStyles/slick-theme.scss'
+import './globalStyles/slick.scss'
 import Layout from './components/layouts/Layout'
 
 export const metadata: Metadata = {
