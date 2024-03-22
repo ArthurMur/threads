@@ -9,8 +9,8 @@ const HeroSlideTooltip = ({ title, image }: IHeroSlideTooltip) => (
     {/* Стрелка указывающая на изображение */}
     <Image
       className={styles.hero__slider__slide__popup__img} // Класс стилей для изображения
-      src={image} // Источник изображения
-      alt={title} // Альтернативный текст изображения
+      src={image}
+      alt={title}
     />
     <p className={styles.hero__slider__slide__popup__inner}>
       {/* Обертка для текстового контента */}

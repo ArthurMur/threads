@@ -113,19 +113,6 @@ const Menu = () => {
     },
   ]
 
-  const souvenirsLinks = [
-    {
-      id: 1,
-      text: translations[lang].comparison['business-souvenirs'],
-      href: '/catalog/souvenirs?offset=0&type=business-souvenirs',
-    },
-    {
-      id: 2,
-      text: translations[lang].comparison['promotional-souvenirs'],
-      href: '/catalog/souvenirs?offset=0&type=promotional-souvenirs',
-    },
-  ]
-
   return (
     <nav className={`nav-menu ${menuIsOpen ? 'open' : 'close'}`}>
       <div className='container nav-menu__container'>
@@ -190,22 +177,6 @@ const Menu = () => {
                       >
                         <ul className='list-reset nav-menu__accordion__item__list'>
                           {accessoriesLinks.map((item) => (
-                            <MenuLinkItem
-                              key={item.id}
-                              item={item}
-                              handleRedirectToCatalog={handleRedirectToCatalog}
-                            />
-                          ))}
-                        </ul>
-                      </Accordion>
-                    </li>
-                    <li className='nav-menu__accordion__item'>
-                      <Accordion
-                        title={translations[lang].main_menu.souvenirs}
-                        titleClass='btn-reset nav-menu__accordion__item__title'
-                      >
-                        <ul className='list-reset nav-menu__accordion__item__list'>
-                          {souvenirsLinks.map((item) => (
                             <MenuLinkItem
                               key={item.id}
                               item={item}
