@@ -11,10 +11,10 @@ const compositions = ['cotton', 'synthetics', 'polyester']
 const accessoryTypes = ['bags', 'caps', 'scarfs']
 
 const images = [
-  '/img/clothes/cloth-scarf.png',
-  '/img/clothes/cloth-bag.png',
-  '/img/clothes/cloth-cap-1.png',
-  '/img/clothes/cloth-cap-2.png',
+  '/img/accessories/cloth-scarfs-1.png',
+  '/img/accessories/cloth-bags-1.png',
+  '/img/accessories/cloth-caps-1.png',
+  '/img/accessories/cloth-caps-2.png',
 ]
 
 const wearingMethod = ['in hand', 'on shoulder', 'over shoulder']

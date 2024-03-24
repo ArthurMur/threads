@@ -32,28 +32,22 @@ const collars = [
 ]
 const sleeves = ['long', 'short']
 const seasons = ['demi-season', 'all season']
-const upperMaterials = [
-  'synthetic material',
-  'quilted jacket fabric',
-  'eco leather',
-  'denim',
-]
-const liningMaterials = ['taffeta', 'viscose', 'polyester', 'chiffon', 'satin']
 
 const images = [
   '/img/clothes/cloth-hoodie-1.png',
   '/img/clothes/cloth-hoodie-2.png',
   '/img/clothes/cloth-hoodie-3.png',
-  '/img/clothes/cloth-longsleeve-1.png',
-  '/img/clothes/cloth-longsleeve-2.png',
-  '/img/clothes/cloth-tshirt-1.png',
-  '/img/clothes/cloth-tshirt-2.png',
-  '/img/clothes/cloth-tshirt-3.png',
-  '/img/clothes/cloth-tshirt-4.png',
-  '/img/clothes/cloth-tshirt-5.png',
+  '/img/clothes/cloth-long-sleeves-1.png',
+  '/img/clothes/cloth-long-sleeves-2.png',
+  '/img/clothes/cloth-t-shirts-1.png',
+  '/img/clothes/cloth-t-shirts-2.png',
 ]
 
-const lineImages = ['/img/tshirt1.png', '/img/tshirt2.png', '/img/tshirt3.png']
+const lineImages = [
+  '/img/t-shirts-3.png',
+  '/img/t-shirts-4.png',
+  '/img/t-shirts-5.png',
+]
 
 module.exports = {
   async up(db) {
@@ -101,18 +95,6 @@ module.exports = {
             sleeve: getRandomArrayValue(sleeves),
             clasp: faker.datatype.boolean(),
             season: getRandomArrayValue(seasons),
-          },
-          {
-            type: 'outerwear',
-            color: getRandomArrayValue(colors),
-            collar: getRandomArrayValue(collars),
-            decor: faker.datatype.boolean(),
-            composition: getRandomArrayValue(compositions),
-            features: getRandomArrayValue(features),
-            upperMaterial: getRandomArrayValue(upperMaterials),
-            liningMaterial: getRandomArrayValue(liningMaterials),
-            collection:
-              collections[Math.floor(Math.random() * collections.length)],
           },
         ]
         const currentCharacteristics = characteristics.find(

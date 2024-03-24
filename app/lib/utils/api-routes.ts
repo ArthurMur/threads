@@ -1,4 +1,5 @@
-import { MongoClient } from 'mongodb'
+import { Db, MongoClient } from 'mongodb'
+import { shuffle } from './common'
 
 // Экспортируем функцию, которая получает доступ к базе данных и телу запроса
 export const getDbAndReqBody = async (
@@ -20,4 +21,25 @@ export const getDbAndReqBody = async (
 
   // Если не передан, возвращаем только объект базы данных
   return { db }
+}
+
+export const getNewAndBestsellerGoods = async (db: Db, fieldName: string) => {
+  //получаем и преобразуем данные в массив
+  const clothes = await db.collection('cloth').find().toArray()
+  const accessories = await db.collection('accessories').find().toArray()
+
+  // Эта функция возвращает перетасованный массив одежды и аксессуаров.
+  return shuffle([
+    ...clothes
+      .filter(
+        (item) =>
+          item[fieldName] && Object.values(item.sizes).some((value) => value)
+      )
+      .slice(0, 2),
+    ...accessories
+      .filter(
+        (item) => item[fieldName] && Object.values(item).some((value) => value)
+      )
+      .slice(0, 2),
+  ])
 }

@@ -204,77 +204,6 @@
     }
   }
 
-  &__subtitle {
-    position: relative;
-    display: inline-block;
-
-    @media (width <= 715px) {
-      margin-bottom: 25px;
-    }
-
-    @media (width <= 490px) {
-      margin-bottom: 45px;
-    }
-
-    @media (width <= 380px) {
-      margin-bottom: 30px;
-    }
-
-    &__rect {
-      position: absolute;
-      bottom: -27px;
-      right: 0;
-      width: 45px;
-      height: 27px;
-      background-image: url('/img/subtitle-rect.svg');
-      background-repeat: no-repeat;
-      background-position: center center;
-    }
-  }
-
-  &__subtitle span {
-    display: inline-block;
-    background-color: var(--white);
-    color: var(--dark-blue);
-    font-size: 3.75em;
-    font-weight: 700;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-radius: 10px 10px 0 0;
-
-    @media (width <= 940px) {
-      font-size: 3em;
-      padding-left: 10px;
-      padding-right: 10px;
-    }
-
-    @media (width <= 475px) {
-      font-size: 2.625em;
-    }
-
-    @media (width <= 380px) {
-      line-height: 32px;
-      font-size: 2em;
-    }
-  }
-
-  &__subtitle span:first-child {
-    padding-top: 4px;
-
-    @media (width <= 940px) {
-      padding-top: 0;
-    }
-  }
-
-  &__subtitle span:last-child {
-    border-radius: 0 10px;
-    padding-bottom: 8px;
-
-    @media (width <= 940px) {
-      padding-bottom: 0;
-    }
-  }
-
   &__title {
     margin: 0;
     margin-bottom: 15px;
@@ -487,6 +416,51 @@
         width: 100%;
         height: 290px;
       }
+    }
+  }
+}
+
+.main_section {
+  min-height: 500px;
+  overflow: hidden;
+  padding-top: 42px;
+  padding-bottom: 30px;
+
+  @media (width <= 600px) {
+    padding-top: 2px;
+    padding-bottom: 20px;
+  }
+
+  &__container {
+    position: relative;
+  }
+
+  &__inner {
+    position: relative;
+    display: flex;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 32px;
+    width: 100%;
+
+    @media (width <= 1150px) {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    @media (width <= 800px) {
+      grid-gap: 24px;
+    }
+
+    @media (width <= 620px) {
+      grid-gap: 18px;
+    }
+
+    @media (width <= 460px) {
+      grid-template-columns: 1fr;
     }
   }
 }
