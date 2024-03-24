@@ -10,11 +10,10 @@ import img1 from '@/../public/img/tshirt1.png'
 import img2 from '@/../public/img/tshirt2.png'
 import img3 from '@/../public/img/tshirt3.png'
 import HeroSlide from './HeroSlide'
+import ProductSubtitle from '@/components/elements/ProductSubtitle/ProductSubtitle'
 
 const Hero = () => {
   const { lang, translations } = useLang()
-  // Определение позиции для разделения описания в зависимости от языка
-  const descriptionSlicePosition = lang == 'ru' ? 5 : 2
 
   const slides = [
     {
@@ -69,23 +68,7 @@ const Hero = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className={styles.hero__subtitle}>
-          <div className={styles.hero__subtitle__rect} />
-          <span>
-            {translations[lang].main_page.hero_description.slice(
-              0,
-              descriptionSlicePosition
-            )}
-            {/* Описание слайда, часть 1 */}
-          </span>
-          <br />
-          <span>
-            {translations[lang].main_page.hero_description.slice(
-              descriptionSlicePosition
-            )}
-            {/* Описание слайда, часть 2 */}
-          </span>
-        </div>
+        <ProductSubtitle />
         <h2 className={styles.hero__title}>
           <span className={styles.hero__title__text}>
             {translations[lang].main_page.hero_title} {/* Заголовок слайда */}
