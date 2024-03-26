@@ -96,6 +96,42 @@
       "more": "More information about the product",
       "composition": "Composition",
       "in_cart": "Added"
+    },
+    "catalog": {
+      "all_categories": "All categories",
+      "popular": "Popular",
+      "new": "New",
+      "cheap_first": "Cheap first",
+      "expensive_first": "Expensive first",
+      "categories": "Categories",
+      "sort": "Sort",
+      "price": "Price",
+      "from": "From",
+      "to": "To",
+      "rub": "₽",
+      "done": "Done",
+      "size": "Size",
+      "color": "Color",
+      "purpure": "Purpure",
+      "pink": "Pink",
+      "gray": "Gray",
+      "orange": "Orange",
+      "yellow": "Yellow",
+      "black": "Black",
+      "white": "White",
+      "cotton": "Cotton",
+      "synthetics": "Synthetic",
+      "polyester": "Polyester"
+    },
+    "size_table": {
+      "head_circumference": "Head circumference, cm",
+      "size": "Size",
+      "russian_size": "Russian size",
+      "manufacturer_size": "Manufacturer size",
+      "chest_circumference": "Chest circumference, cm",
+      "waist_circumference": "Waist circumference, cm",
+      "hip_circumference": "Hip circumference, cm",
+      "title": "Size table"
     }
   },
 
@@ -196,6 +232,42 @@
       "more": "Больше информации о товаре",
       "composition": "Состав",
       "in_cart": "Добавлено"
+    },
+    "catalog": {
+      "all_categories": "Все категории",
+      "popular": "Популярные",
+      "new": "Новинки",
+      "cheap_first": "Сначала дешевые",
+      "expensive_first": "Сначала дорогие",
+      "categories": "Категории",
+      "sort": "Сортировка",
+      "price": "Цена",
+      "from": "От",
+      "to": "До",
+      "rub": "руб.",
+      "done": "Готово",
+      "size": "Размер",
+      "color": "Цвет",
+      "purpure": "Пурпурный",
+      "pink": "Розовый",
+      "gray": "Серый",
+      "orange": "Оранжевый",
+      "yellow": "Желтый",
+      "black": "Черный",
+      "white": "Белый",
+      "cotton": "Хлопок",
+      "synthetics": "Синтетика",
+      "polyester": "Полиэстер"
+    },
+    "size_table": {
+      "head_circumference": "Обхват головы, см",
+      "size": "Размер",
+      "russian_size": "Российский размер",
+      "manufacturer_size": "Размер производителя",
+      "chest_circumference": "Обхват груди, в см",
+      "waist_circumference": "Обхват талии, в см",
+      "hip_circumference": "Обхват бедер, в см",
+      "title": "Таблица размеров"
     }
   }
 }

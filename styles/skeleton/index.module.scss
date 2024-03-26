@@ -26,11 +26,11 @@
 }
 
 .skeleton__item {
-  background-color: #2a323f;
+  background-color: var(--gray9);
   overflow: hidden !important;
   padding: 0;
   height: 485px;
-  border-radius: 4px;
+  border-radius: var(--border-radius);
 
   @media (width <= 800px) {
     height: 450px;

@@ -7,6 +7,8 @@
   --gray6: #16181b;
   --gray7: rgb(255 255 255 / 6%);
   --gray8: #3d4555;
+  --gray9: #2a323f;
+  --gray10: #4e5d77;
   --dark-blue: #1d2533;
   --dark-blue2: #101828;
   --white: #e8e9ea;
@@ -17,6 +19,9 @@
   --purple3: #330867;
   --purple4: #240648;
   --green: #16d9a6;
+  --green2: #26da72;
+  --red: #ff4747;
+  --orange: #ff5e2d;
   --lime: #30cfd0;
   --blue: #4075ff;
   --border-radius: 12px;
@@ -102,7 +107,9 @@ a {
   list-style-type: none;
 }
 
-.header__search-overlay {
+.header__search-overlay,
+.quick-view-modal-overlay,
+.size-table-overlay {
   background: var(--gray6);
   height: 100%;
   left: 0;
@@ -114,10 +121,73 @@ a {
   z-index: -1;
 }
 
-.header__search-overlay.overlay-active {
+.header__search-overlay.overlay-active,
+.size-table-overlay.overlay-active,
+.quick-view-modal-overlay.overlay-active {
   opacity: 0.6;
   visibility: visible;
+}
+
+.header__search-overlay.overlay-active {
   z-index: 101;
+}
+
+.size-table-overlay.overlay-active {
+  z-index: 10;
+}
+
+.quick-view-modal-overlay.overlay-active {
+  z-index: 2;
+}
+
+.quick-modal-dots li.slick-active button {
+  background-image: url('/img/white-ellipse.svg') !important;
+}
+
+.sizes-table-btn {
+  color: var(--green);
+  font-size: 0.875em;
+  text-decoration-line: underline;
+}
+
+.counter button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.counter button {
+  position: relative;
+  height: 22px;
+  width: 24px;
+}
+
+.counter button::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--white3);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.counter button:first-child::before {
+  mask: url('/img/minus.svg') no-repeat 50% 50%;
+}
+
+.counter button:last-child::before {
+  mask: url('/img/plus.svg') no-repeat 50% 50%;
+}
+
+.counter button:hover::before {
+  transition: background-color 0.2s ease-in-out;
+  background-color: var(--purple);
+}
+
+.counter span {
+  color: rgb(255 255 255 / 90%);
+  font-size: 0.875em;
 }
 
 .overflow-hidden {
@@ -149,7 +219,7 @@ a {
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background-color: #70f;
+  background-color: var(--purple2);
   left: 125px;
   top: 45%;
   background-image: url('/img/plus-big.svg');

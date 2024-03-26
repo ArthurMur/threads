@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import PagesLayout from './components/layouts/PagesLayout'
 import './globalStyles/normalize.css'
 import './globalStyles/globals.scss'
 import './globalStyles/header.scss'
@@ -10,7 +11,6 @@ import './globalStyles/cart-popup.scss'
 import './globalStyles/footer.scss'
 import './globalStyles/slick-theme.scss'
 import './globalStyles/slick.scss'
-import Layout from './components/layouts/Layout'
 
 export const metadata: Metadata = {
   title: 'thread',
@@ -19,14 +19,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
-  return (
-    <html lang='ru'>
-      <body>
-        <Layout>{children}</Layout>
-      </body>
-    </html>
-  )
+}) {
+  return <PagesLayout>{children}</PagesLayout>
 }
