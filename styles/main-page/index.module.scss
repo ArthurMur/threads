@@ -118,7 +118,7 @@
         right: 27px;
         padding: 12px;
         border-radius: var(--border-radius);
-        background-color: #3d4555;
+        background-color: var(--gray8);
         transition:
           opacity 0.2s ease-in-out,
           visibility 0.2s ease-in-out;
@@ -188,7 +188,7 @@
         &__title {
           min-width: 142px;
           margin-bottom: 6px;
-          color: #e8e9ea;
+          color: var(--white);
           font-weight: 700;
           line-height: 20px;
 
@@ -198,7 +198,7 @@
         }
 
         &__price {
-          color: #16d9a6;
+          color: var(--green);
         }
       }
     }
@@ -310,12 +310,12 @@
   &__title {
     @media (width <= 800px) {
       margin-bottom: 32px !important;
-      font-size: 36px !important;
+      font-size: 2.25em !important;
     }
 
     @media (width <= 490px) {
       margin-bottom: 15px !important;
-      font-size: 32px !important;
+      font-size: 2em !important;
     }
   }
 
@@ -338,7 +338,6 @@
     overflow: hidden;
     transition: border-radius 0.2s ease-in-out;
     border-radius: 40px;
-    box-shadow: rgb(0 0 0 / 35%) 0 5px 15px;
 
     img {
       max-width: 100%;
@@ -365,6 +364,9 @@
     &:hover::before {
       transition: background-color 0.2s ease-in-out;
       background-color: rgb(16 24 40 / 55%);
+      box-shadow:
+        0 12px 20px 0 rgb(0 0 0 / 20%),
+        0 0 20px 0 rgb(0 0 0 / 10%);
 
       @media (width <= 800px) {
         background: transparent;
@@ -372,7 +374,10 @@
     }
 
     &:hover {
-      transition: border-radius 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+      box-shadow:
+        0 12px 20px 0 rgb(0 0 0 / 20%),
+        0 0 20px 0 rgb(0 0 0 / 10%);
     }
 
     span {
@@ -380,12 +385,12 @@
       opacity: 0;
       top: 0;
       left: 0;
-      color: #e8e9ea;
-      font-size: 22px;
+      color: var(--white);
+      font-size: 1.375em;
       font-weight: 400;
       border-radius: 0 26px 26px 0;
       padding: 16px 32px;
-      background-color: #565c66;
+      background-color: var(--gray8);
       box-shadow:
         0 2px 4px 0 rgb(0 0 0 / 20%),
         0 0 8px 0 rgb(0 0 0 / 10%);
@@ -393,7 +398,6 @@
 
       @media (width <= 800px) {
         padding: 8px 24px;
-        font-size: 16px;
         opacity: 1;
       }
     }
@@ -466,7 +470,7 @@
 }
 
 .img_loading {
-  background-color: #2a323f;
+  background-color: var(--gray9);
   pointer-events: none;
 }
 
@@ -475,8 +479,7 @@
   right: 0;
   top: -65px;
   text-decoration: none;
-  color: #fff;
-  font-size: 16px;
+  color: var(--white3);
   font-weight: 500;
   padding-right: 25px;
   transition: color 0.2s ease-in-out;

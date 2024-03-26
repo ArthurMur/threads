@@ -4,7 +4,7 @@
   width: max-content;
   padding: 10px 12px;
   border-radius: 12px;
-  background-color: #3d4555;
+  background-color: var(--gray8);
   z-index: 10;
 
   &__inner {
@@ -26,6 +26,6 @@
 
   &__text {
     color: rgb(255 255 255 / 90%);
-    font-size: 14px;
+    font-size: 0.875em;
   }
 }
