@@ -1,7 +1,10 @@
 .header {
-  position: relative;
+  position: fixed;
+  width: 100%;
   z-index: 3;
-  background-color: var(--dark-blue);
+  border-bottom: 1px solid var(--gray4);
+  backdrop-filter: blur(10px);
+  background-color: #00000087;
   box-shadow: rgb(0 0 0 / 35%) 0 5px 15px;
 }
 

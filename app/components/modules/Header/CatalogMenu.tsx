@@ -6,7 +6,6 @@ import { useUnit } from 'effector-react'
 import { $catalogMenuIsOpen, closeCatalogMenu } from '@/context/modals'
 import { useLang } from '@/hooks/useLang'
 import { useMenuAnimation } from '@/hooks/useMenuAnimation'
-import Header from './Header'
 import { removeOverflowHiddenFromBody } from '@/lib/utils/common'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import CatalogMenuButton from './CatalogMenuButton'
@@ -86,9 +85,6 @@ const CatalogMenu = () => {
             }}
             className='catalog-menu__aside'
           >
-            <div className='catalog-menu__header'>
-              <Header />
-            </div>
             <motion.div
               className='catalog-menu__inner'
               initial='closed'

@@ -2,7 +2,7 @@
 import { useLang } from '@/hooks/useLang'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Swiper as SwiperType } from 'swiper/types'
-import { EffectCoverflow } from 'swiper/modules'
+import { EffectCoverflow, Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
 import styles from '@/../styles/main-page/index.module.scss'
@@ -54,10 +54,11 @@ const Hero = () => {
           }}
           slidesPerView='auto' // Количество отображаемых слайдов
           initialSlide={2} // Начальный активный слайд
-          autoplay // Автопрокрутка слайдов
-          loop // Бесконечная прокрутка слайдов
+          autoplay={{ delay: 2000, disableOnInteraction: false }} // Автопрокрутка слайдов
+          speed={900}
+          loop={false} // Бесконечная прокрутка слайдов
           onClick={handleSlideClick} // Обработчик клика на слайд
-          modules={[EffectCoverflow]} // Используемый модуль Swiper
+          modules={[EffectCoverflow, Autoplay]} // Используемый модуль Swiper
           grabCursor // Изменение курсора при наведении на слайд
           centeredSlides // Центрирование слайдов
         >

@@ -2,8 +2,8 @@
   position: relative;
   overflow: hidden;
   z-index: 1;
-  height: 800px;
-  padding-top: 104px;
+  height: 820px;
+  padding-top: 150px;
   padding-bottom: 200px;
   background: radial-gradient(
       112.11% 111.8% at 100% 0%,
@@ -21,21 +21,17 @@
     height: 680px;
   }
 
-  @media (width <= 1170px) {
-    height: 600px;
-  }
-
   @media (width <= 940px) {
-    height: 500px;
+    height: 550px;
   }
 
   @media (width <= 760px) {
-    height: 800px;
-    padding-top: 40px;
+    height: 880px;
+    padding-top: 140px;
   }
 
   @media (width <= 380px) {
-    height: 690px;
+    height: 790px;
   }
 
   &__container {

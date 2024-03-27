@@ -88,6 +88,11 @@
 
 .nav-menu.open {
   top: 0;
+  height: 100vh;
+
+  @media (width <= 450px) {
+    padding-top: 20px;
+  }
 
   &::before {
     animation: menu-animation 0.8s ease-out forwards;
