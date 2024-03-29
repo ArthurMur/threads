@@ -58,7 +58,6 @@
       "hero_hidden_title": "Clothing store thread",
       "hero_title": "thread",
       "product_subtitle_description": "Be in style",
-      "hero_subtitle": "with the new “Line” collection",
       "catalog_btn": "Catalog",
       "category_title": "Categories",
       "category_cloth": "Cloth",
@@ -132,6 +131,31 @@
       "waist_circumference": "Waist circumference, cm",
       "hip_circumference": "Hip circumference, cm",
       "title": "Size table"
+    },
+    "auth_popup": {
+      "registration_title": "Registration",
+      "registration_text": "Create",
+      "registration_description": "Create an account",
+      "registration_question": "Already have an account?",
+      "login_text": "Login",
+      "login_description": "Login to your account",
+      "forgot_password": "Forgot your password?",
+      "login_question": "Don't have an account yet?",
+      "register": "Register!",
+      "name": "Name",
+      "password": "Password"
+    },
+    "validation": {
+      "invalid_value": "Invalid value!",
+      "requiredName": "Enter your name!",
+      "invalid_phone": "Invalid phone!",
+      "required_email": "Enter your email!",
+      "invalid_email": "Invalid email!",
+      "min_2": "Min 2 characters!",
+      "max_15": "Max 2 characters!",
+      "required_password": "Enter your password!",
+      "min_4": "Min 4 characters!",
+      "max_20": "Max 20 characters!"
     }
   },
 
@@ -194,7 +218,6 @@
       "hero_hidden_title": "Магазин одежды thread",
       "hero_title": "thread",
       "product_subtitle_description": "Будь на стиле",
-      "hero_subtitle": "с новой коллекцией «Line»",
       "catalog_btn": "Каталог",
       "category_title": "Категории",
       "category_cloth": "Одежда",
@@ -268,6 +291,31 @@
       "waist_circumference": "Обхват талии, в см",
       "hip_circumference": "Обхват бедер, в см",
       "title": "Таблица размеров"
+    },
+    "auth_popup": {
+      "registration_title": "Регистрация",
+      "registration_text": "Создать",
+      "registration_description": "Создать аккаунт",
+      "registration_question": "Уже есть аккаунт?",
+      "login_text": "Войти",
+      "login_description": "Войти в свой аккаунт",
+      "forgot_password": "Забыли пароль?",
+      "login_question": "Еще нет аккаунта?",
+      "register": "Зарегистрироваться!",
+      "name": "Имя",
+      "password": "Пароль"
+    },
+    "validation": {
+      "invalid_value": "Недопустимое значение!",
+      "requiredName": "Введите имя!",
+      "invalid_phone": "Нправильный телефон!",
+      "required_email": "Введите email!",
+      "invalid_email": "Неправильный Email!",
+      "min_2": "Минимум 2 символа!",
+      "max_15": "Не более 15 символов!",
+      "required_password": "Введите пароль!",
+      "min_4": "Минимум 4 символа!",
+      "max_20": "Не более 20 символов!"
     }
   }
 }

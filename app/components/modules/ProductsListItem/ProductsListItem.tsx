@@ -42,13 +42,14 @@ const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
               <Image
                 src={item.images[0]}
                 alt={item.name}
+                sizes='auto'
                 fill
                 objectFit='contain'
               />
             </div>
             <p className={styles.list__item_ad__title}>
               <span>
-                {translations[lang].main_page.tShirt} «Line»{' '}
+                {translations[lang].main_page.tShirt} «Disorder»{' '}
                 {
                   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                   //@ts-ignore
@@ -104,6 +105,7 @@ const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
             <Image
               src={item.images[0]}
               alt={item.name}
+              sizes='auto'
               fill
               objectFit='contain'
             />

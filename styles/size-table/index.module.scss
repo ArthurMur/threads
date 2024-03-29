@@ -1,14 +1,25 @@
 .size_table {
+  display: flex;
+  flex-direction: column;
   position: fixed;
-  width: 975px;
+  width: 960px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 103;
   padding: 32px;
-  background-color: var(--gray9);
+  border: 1px solid var(--gray4);
   border-radius: var(--border-radius);
   color: rgb(255 255 255 / 90%);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(12px);
+    border-radius: var(--border-radius);
+    z-index: -1;
+  }
 
   @media (width <= 1070px) {
     width: 780px;
@@ -76,6 +87,7 @@
   }
 
   &__btn {
+    align-self: flex-end;
     border-radius: 32px;
     background-color: var(--purple) !important;
     padding: 12px 24px !important;
@@ -123,11 +135,6 @@
     @media (width <= 770px) {
       padding: 18px;
       width: 700px;
-    }
-
-    thead tr {
-      background-color: var(--gray9);
-      color: rgb(255 255 255 / 90%);
     }
 
     thead tr th {

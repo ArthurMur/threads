@@ -7,7 +7,7 @@
   padding-bottom: 200px;
   background: radial-gradient(
       112.11% 111.8% at 100% 0%,
-      var(--lime) 0%,
+      var(--purple3) 0%,
       rgb(64 117 255 / 0%) 100%
     ),
     radial-gradient(
@@ -15,7 +15,7 @@
       var(--purple3) 0%,
       rgb(22 217 166 / 0%) 100%
     ),
-    var(--purple4);
+    var(--dark);
 
   @media (width <= 1460px) {
     height: 680px;
@@ -359,7 +359,7 @@
 
     &:hover::before {
       transition: background-color 0.2s ease-in-out;
-      background-color: rgb(16 24 40 / 55%);
+      background-color: rgb(0 0 0 / 55%);
       box-shadow:
         0 12px 20px 0 rgb(0 0 0 / 20%),
         0 0 20px 0 rgb(0 0 0 / 10%);
@@ -386,7 +386,7 @@
       font-weight: 400;
       border-radius: 0 26px 26px 0;
       padding: 16px 32px;
-      background-color: var(--gray8);
+      background-color: var(--purple);
       box-shadow:
         0 2px 4px 0 rgb(0 0 0 / 20%),
         0 0 8px 0 rgb(0 0 0 / 10%);

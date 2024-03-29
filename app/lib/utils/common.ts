@@ -1,4 +1,6 @@
+import { closeAuthPopup, openAuthPopup, setIsAuth } from '@/context/auth'
 import { closeSearchModal, closeSizeTable } from '@/context/modals'
+import { loginCheck } from '@/context/user'
 
 // Функция для удаления стиля overflow:hidden у body
 export const removeOverflowHiddenFromBody = () => {
@@ -74,4 +76,49 @@ export const closeSizeTableByCheck = (showQuickViewModal: boolean) => {
   }
 
   closeSizeTable()
+}
+
+export const handleOpenAuthPopup = () => {
+  addOverflowHiddenToBody()
+  openAuthPopup()
+}
+
+export const handleCloseAuthPopup = () => {
+  removeOverflowHiddenFromBody()
+  closeAuthPopup()
+}
+
+export const closeAuthPopupWhenSomeModalOpened = (
+  showQuickViewModal: boolean,
+  showSizeTable: boolean
+) => {
+  if (showQuickViewModal || showSizeTable) {
+    closeAuthPopup()
+    return
+  }
+
+  handleCloseAuthPopup()
+}
+
+// авторизован ли пользователь
+export const isUserAuth = () => {
+  const auth = JSON.parse(localStorage.getItem('auth') as string)
+
+  if (!auth?.accessToken) {
+    setIsAuth(false)
+    return false
+  }
+
+  return true
+}
+
+// проверка наличия пользователя
+export const triggerLoginCheck = () => {
+  if (!isUserAuth()) {
+    return
+  }
+
+  const auth = JSON.parse(localStorage.getItem('auth') as string)
+
+  loginCheck({ jwt: auth.accessToken })
 }

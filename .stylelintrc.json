@@ -3,6 +3,7 @@
   "rules": {
     "selector-class-pattern": null,
     "no-descending-specificity": null,
-    "font-family-no-missing-generic-family-keyword": null
+    "font-family-no-missing-generic-family-keyword": null,
+    "keyframes-name-pattern": null
   }
 }

@@ -71,7 +71,7 @@
     border-radius: 100%;
     transform: scale(0.04), translateY(9999px);
     overflow: hidden;
-    background-color: var(--dark-blue2);
+    background-color: var(--dark);
   }
 }
 
@@ -228,7 +228,7 @@
 }
 
 .nav-menu__list__item__btn {
-  color: var(--gray);
+  color: var(--gray2);
   font-size: 1.5em;
   font-weight: 700;
   line-height: 32px;
