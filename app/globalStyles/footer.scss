@@ -5,22 +5,16 @@
 .footer__top {
   padding-top: 15px;
   padding-bottom: 30px;
-  background-color: var(--gray4);
+  background-color: var(--gray7);
 }
 
 .footer__top__container {
   display: flex;
   align-items: center;
-  justify-content: center;
-}
-
-.footer__logo {
-  width: 25%;
+  justify-content: space-evenly;
 }
 
 .footer__contacts {
-  width: 25%;
-  padding-top: 22px;
   transition: color 0.2s ease-in-out;
   font-size: 0.875em !important;
   display: flex;
@@ -177,10 +171,6 @@
         margin-bottom: 10px;
       }
     }
-  }
-
-  .footer__top__container {
-    justify-content: space-between;
   }
 
   .footer__policy__inner {

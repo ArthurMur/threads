@@ -18,17 +18,17 @@ const Hero = () => {
   const slides = [
     {
       id: 1,
-      title: `${translations[lang].main_page.tShirt} «Line» ${translations[lang].main_page.white}`,
+      title: `${translations[lang].main_page.tShirt} «Disorder» ${translations[lang].main_page.white}`,
       image: img1,
     },
     {
       id: 2,
-      title: `${translations[lang].main_page.tShirt} «Line» ${translations[lang].main_page.black}`,
+      title: `${translations[lang].main_page.tShirt} «Disorder» ${translations[lang].main_page.black}`,
       image: img2,
     },
     {
       id: 3,
-      title: `${translations[lang].main_page.tShirt} «Line» ${translations[lang].main_page.pink}`,
+      title: `${translations[lang].main_page.tShirt} «Disorder» ${translations[lang].main_page.pink}`,
       image: img3,
     },
   ]

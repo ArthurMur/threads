@@ -9,6 +9,7 @@
   --gray8: #3d4555;
   --gray9: #2a323f;
   --gray10: #4e5d77;
+  --dark: #16181b;
   --dark-blue: #1d2533;
   --dark-blue2: #101828;
   --white: #e8e9ea;
@@ -20,11 +21,14 @@
   --purple4: #240648;
   --green: #16d9a6;
   --green2: #26da72;
+  --green3: #229953;
   --red: #ff4747;
   --orange: #ff5e2d;
   --lime: #30cfd0;
   --blue: #4075ff;
   --border-radius: 12px;
+  --background: #00000087;
+  --background2: #000000c6;
 }
 
 @font-face {
@@ -56,7 +60,7 @@
 }
 
 body {
-  background-color: #1d2533;
+  background-color: var(--gray6);
   color: #e8e9ea;
   display: flex;
   flex-direction: column;
@@ -109,7 +113,8 @@ a {
 
 .header__search-overlay,
 .quick-view-modal-overlay,
-.size-table-overlay {
+.size-table-overlay,
+.auth-overlay {
   background: var(--gray6);
   height: 100%;
   left: 0;
@@ -123,8 +128,10 @@ a {
 
 .header__search-overlay.overlay-active,
 .size-table-overlay.overlay-active,
-.quick-view-modal-overlay.overlay-active {
-  opacity: 0.6;
+.quick-view-modal-overlay.overlay-active,
+.auth-overlay.overlay-active {
+  opacity: 0.9;
+  background-color: rgb(0 0 0 / 70%);
   visibility: visible;
 }
 
@@ -138,6 +145,10 @@ a {
 
 .quick-view-modal-overlay.overlay-active {
   z-index: 2;
+}
+
+.auth-overlay.overlay-active {
+  z-index: 100;
 }
 
 .quick-modal-dots li.slick-active button {

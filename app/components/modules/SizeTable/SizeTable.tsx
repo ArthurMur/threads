@@ -17,7 +17,7 @@ const SizeTable = () => {
   const [xlSize, setXLSize] = useState(false)
   const [xxlSize, setXXLSize] = useState(false)
   const { lang, translations } = useLang()
-  const { selectedSize, setSelectedSize, product } = useCartAction()
+  const { selectedSize, setSelectedSize } = useCartAction()
   const showQuickViewModal = useUnit($showQuickViewModal)
   const productSizes = useUnit($sizeTableSizes)
   const isHeaddressType = productSizes.type === 'headdress'
@@ -208,7 +208,7 @@ const SizeTable = () => {
           : 'transparent',
       pointerEvents: item.isAvailable ? 'auto' : 'none',
       opacity: item.isAvailable ? 1 : 0.5,
-      color: item.isAvailable ? '#fff' : 'rgba(255, 255, 255, .2)',
+      color: item.isAvailable ? '#fff' : 'rgba(255, 255, 255, .6)',
     },
   })
 
