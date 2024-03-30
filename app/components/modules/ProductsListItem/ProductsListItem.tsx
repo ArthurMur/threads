@@ -5,24 +5,40 @@ import styles from '@/../styles/product-list-item/index.module.scss'
 import Link from 'next/link'
 import ProductSubtitle from '@/components/elements/ProductSubtitle/ProductSubtitle'
 import Image from 'next/image'
-import { addOverflowHiddenToBody, formatPrice } from '@/lib/utils/common'
+import {
+  addOverflowHiddenToBody,
+  formatPrice,
+  isItemInList,
+} from '@/lib/utils/common'
 import ProductLabel from './ProductLabel'
 import ProductItemActionBtn from '@/components/elements/ProductItemActionBtn/ProductItemActionBtn'
 import ProductAvailable from '@/components/elements/ProductAvailable/ProductAvailable'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { showQuickViewModal } from '@/context/modals'
 import { setCurrentProduct } from '@/context/goods'
+import { productsWithoutSizes } from '@/constants/product'
+import { useCartAction } from '@/hooks/useCartAction'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { addProductToCartBySizeTable } from '@/lib/utils/cart'
 
 const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
   const { lang, translations } = useLang()
   const isTitleForNew = title === translations[lang].main_page.new_title
   const isMedia800 = useMediaQuery(800)
+  const { addToCartSpinner, setAddToCartSpinner, currentCartByAuth } =
+    useCartAction()
+  const isProductInCart = isItemInList(currentCartByAuth, item._id)
 
   // Обработчик клика на эдемент быстрого просмотра
   const handleShowQuickViewModal = () => {
     addOverflowHiddenToBody()
     showQuickViewModal()
     setCurrentProduct(item)
+  }
+  // Обработчик клика на кнопку добавления в корзину
+  const addToCart = () => {
+    addProductToCartBySizeTable(item, setAddToCartSpinner, 1)
   }
 
   return (
@@ -124,9 +140,31 @@ const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
               {formatPrice(+item.price)} ₽
             </span>
           </div>
-          <button className={`btn-reset ${styles.list__item__cart}`}>
-            {translations[lang].product.to_cart}
-          </button>
+          {productsWithoutSizes.includes(item.type) ? (
+            <button
+              onClick={addToCart}
+              className={`btn-reset ${styles.list__item__cart} ${
+                isProductInCart ? styles.list__item__cart_added : ''
+              }`}
+              disabled={addToCartSpinner}
+              style={addToCartSpinner ? { minWidth: 125, height: 48 } : {}}
+            >
+              {addToCartSpinner ? (
+                <FontAwesomeIcon icon={faSpinner} spin color='#fff' />
+              ) : isProductInCart ? (
+                translations[lang].product.in_cart
+              ) : (
+                translations[lang].product.to_cart
+              )}
+            </button>
+          ) : (
+            <button
+              className={`btn-reset ${styles.list__item__cart}`}
+              onClick={addToCart}
+            >
+              {translations[lang].product.to_cart}
+            </button>
+          )}
         </li>
       )}
     </>

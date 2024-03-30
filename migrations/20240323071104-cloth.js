@@ -8,7 +8,7 @@ const getRandomArrayValue = (arr) => arr[Math.floor(Math.random() * arr.length)]
 const collections = ['street', 'black']
 const colors = ['pink', 'black', 'white', 'gray']
 const compositions = ['cotton', 'synthetics', 'polyester']
-const clothTypes = ['t-shirts', 'long-sleeves', 'hoodie', 'outerwear']
+const clothTypes = ['t-shirts', 'long-sleeves', 'hoodie']
 const fabricTypes = [
   'natural',
   'non-natural',
