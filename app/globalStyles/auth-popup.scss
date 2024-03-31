@@ -1,3 +1,13 @@
+@keyframes animStar {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-2000px);
+  }
+}
+
 .auth-popup-wrapper {
   position: fixed;
   inset: 0;
@@ -12,18 +22,18 @@
   position: absolute;
   right: 20px;
   top: 165px;
-}
 
-.auth-popup__close::before {
-  background-color: var(--white);
-  content: '';
-  height: 100%;
-  width: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  transition: background-color 0.2s ease-in-out;
-  mask: url('/img/close-small.svg') no-repeat 50% 50%;
+  &::before {
+    background-color: var(--white);
+    content: '';
+    height: 100%;
+    width: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: background-color 0.2s ease-in-out;
+    mask: url('/img/close-small.svg') no-repeat 50% 50%;
+  }
 }
 
 .auth-popup__card {
@@ -33,7 +43,7 @@
   z-index: 1000;
   border: none;
   border-radius: 30px;
-  background-color: #14edaa;
+  background-color: var(--green2);
   perspective: 1000px;
 }
 
@@ -46,8 +56,10 @@
   transform-style: preserve-3d;
 }
 
-.auth-popup__card.switched .auth-popup__card__inner {
-  transform: rotateY(180deg);
+.auth-popup__card.switched {
+  .auth-popup__card__inner {
+    transform: rotateY(180deg);
+  }
 }
 
 .card-body {
@@ -69,8 +81,7 @@
   margin-bottom: 16px;
 }
 
-.card-front,
-.card-back {
+.card-front {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -78,6 +89,10 @@
 }
 
 .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
   transform: rotateY(180deg);
 }
 
@@ -551,16 +566,6 @@
   z-index: 10;
 }
 
-@keyframes animStar {
-  0% {
-    transform: translateY(0);
-  }
-
-  100% {
-    transform: translateY(-2000px);
-  }
-}
-
 .inner__btn {
   background: #1c1f2f;
   border-radius: 30px;
@@ -574,19 +579,19 @@
     0 7px 13px rgb(255 255 255 / 3%);
   cursor: pointer;
   color: var(--white);
-}
 
-.inner__btn:hover {
-  background-color: #1c1f2f;
-  border-radius: 50px;
-  min-width: 140px;
-  box-shadow:
-    3px 9px 16px rgb(0 0 0 / 40%),
-    -3px -3px 10px rgb(255 255 255 / 6%),
-    inset 14px 14px 26px rgb(0 0 0 / 30%),
-    inset -3px -3px 15px rgb(255 255 255 / 5%);
-  border-style: solid;
-  border-color: #2e344d;
+  &:hover {
+    background-color: #1c1f2f;
+    border-radius: 50px;
+    min-width: 140px;
+    box-shadow:
+      3px 9px 16px rgb(0 0 0 / 40%),
+      -3px -3px 10px rgb(255 255 255 / 6%),
+      inset 14px 14px 26px rgb(0 0 0 / 30%),
+      inset -3px -3px 15px rgb(255 255 255 / 5%);
+    border-style: solid;
+    border-color: #2e344d;
+  }
 }
 
 .form__block__input {
@@ -603,6 +608,21 @@
     -13px -13px 23px rgb(255 255 255 / 3%);
   margin-top: 24px;
   color: var(--white);
+
+  &::placeholder {
+    color: #495057;
+  }
+
+  &:focus {
+    border: 1px solid #344d2e;
+    outline: 0;
+    background: rgb(17 20 31);
+    border-radius: 4px;
+    transition: all 0.3s ease-in-out 0s;
+    box-shadow:
+      10px 10px 36px rgb(0 0 0 / 50%),
+      -13px -13px 23px rgb(255 255 255 / 3%);
+  }
 }
 
 .form__block {
@@ -613,28 +633,13 @@
   width: 100%;
 }
 
-.form__block__input::placeholder {
-  color: #495057;
-}
-
-.form__block__input:focus {
-  border: 1px solid #344d2e;
-  outline: 0;
-  background: rgb(17 20 31);
-  border-radius: 4px;
-  transition: all 0.3s ease-in-out 0s;
-  box-shadow:
-    10px 10px 36px rgb(0 0 0 / 50%),
-    -13px -13px 23px rgb(255 255 255 / 3%);
-}
-
 .inner__switch {
   color: var(--green2);
-}
 
-.inner__switch:hover {
-  color: var(--green3);
-  text-decoration: underline;
+  &:hover {
+    color: var(--green3);
+    text-decoration: underline;
+  }
 }
 
 .socials__btn {
@@ -665,7 +670,7 @@
 }
 
 .gh-color {
-  color: #fff;
+  color: var(--white3);
 }
 
 .g-color {
@@ -673,9 +678,9 @@
 }
 
 .y-color {
-  color: #e2432a;
+  color: var(--red);
 }
 
 .vk-color {
-  color: #4c75a3;
+  color: var(--white) 0;
 }

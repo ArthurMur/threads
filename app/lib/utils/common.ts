@@ -1,6 +1,14 @@
 import { closeAuthPopup, openAuthPopup, setIsAuth } from '@/context/auth'
-import { closeSearchModal, closeSizeTable } from '@/context/modals'
+import {
+  closeSearchModal,
+  closeSizeTable,
+  showSizeTable,
+} from '@/context/modals'
 import { loginCheck } from '@/context/user'
+import { ICartItem } from '../../../types/cart'
+import { IProduct } from '../../../types/common'
+import { setCurrentProduct } from '@/context/goods'
+import { setSizeTableSizes } from '@/context/sizeTable'
 
 // Функция для удаления стиля overflow:hidden у body
 export const removeOverflowHiddenFromBody = () => {
@@ -122,3 +130,23 @@ export const triggerLoginCheck = () => {
 
   loginCheck({ jwt: auth.accessToken })
 }
+
+// проверка наличия продукта в корзине
+export const isItemInList = (array: ICartItem[], productId: string) =>
+  array.some((item) => item.productId === productId)
+
+// открытие модального окна с таблицей размеров
+export const handleShowSizeTable = (product: IProduct) => {
+  setCurrentProduct(product)
+  setSizeTableSizes({ sizes: product.sizes, type: product.type })
+  addOverflowHiddenToBody()
+  showSizeTable()
+}
+
+// получение количества добавленных в корзину товаров по размеру
+export const getCartItemCountBySize = (
+  cartItems: ICartItem[],
+  currentSize: string
+) =>
+  cartItems.find((item) => item.size === currentSize.toLocaleLowerCase())
+    ?.count || 0

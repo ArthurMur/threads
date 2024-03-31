@@ -1,7 +1,8 @@
-import { Db, MongoClient } from 'mongodb'
+import { Db, MongoClient, ObjectId } from 'mongodb'
 import jwt, { VerifyErrors } from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
 import { shuffle } from './common'
+import { NextResponse } from 'next/server'
 
 // Экспортируем функцию, которая получает доступ к базе данных и телу запроса
 export const getDbAndReqBody = async (
@@ -146,3 +147,80 @@ export const isValidAccessToken = async (token: string | undefined) => {
 
 export const parseJwt = (token: string) =>
   JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString())
+
+export const getDataFromDBByCollection = async (
+  clientPromise: Promise<MongoClient>,
+  req: Request,
+  collection: string
+) => {
+  const { db, validatedTokenResult, token } = await getAuthRouteData(
+    clientPromise,
+    req,
+    false
+  )
+
+  if (validatedTokenResult.status !== 200) {
+    return NextResponse.json(validatedTokenResult)
+  }
+
+  const user = await findUserByEmail(db, parseJwt(token as string).email)
+  const items = await db
+    .collection(collection)
+    .find({ userId: user?._id })
+    .toArray()
+
+  return NextResponse.json(items)
+}
+
+// обновляем продукты в коллекции
+export const replaceProductsInCollection = async (
+  clientPromise: Promise<MongoClient>,
+  req: Request,
+  collection: string
+) => {
+  const { db, validatedTokenResult, reqBody, token } = await getAuthRouteData(
+    clientPromise,
+    req
+  )
+
+  if (validatedTokenResult.status !== 200) {
+    return NextResponse.json(validatedTokenResult)
+  }
+
+  if (!reqBody.items) {
+    return NextResponse.json({
+      message: 'items fields is required',
+      status: 404,
+    })
+  }
+
+  // нахождение пользователя
+  const user = await db
+    .collection('users')
+    .findOne({ email: parseJwt(token as string).email })
+  // прикрепляем userId к items
+  const items = (reqBody.items as { productId: string }[]).map((item) => ({
+    userId: user?._id,
+    ...item,
+    productId: new ObjectId(item.productId),
+  }))
+
+  // очищаем коллекцию
+  await db.collection(collection).deleteMany({ userId: user?._id })
+
+  // если нет продуктов в items, возвращаем пустой массив
+  if (!items.length) {
+    return NextResponse.json({
+      status: 201,
+      items: [],
+    })
+  }
+
+  // если есть то добавляем продукты в базу данных
+  await db.collection(collection).insertMany(items)
+
+  return NextResponse.json({
+    status: 201,
+    items,
+  })
+}

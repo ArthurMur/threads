@@ -5,6 +5,7 @@ import {
   findUserByEmail, // Функция поиска пользователя по email
   parseJwt, // Функция разбора JWT-токена
 } from '@/lib/utils/api-routes'
+import { IUser } from '../../../../types/user'
 
 // Экспорт асинхронной функции GET с аргументом req типа Request
 export async function GET(req: Request) {
@@ -22,13 +23,16 @@ export async function GET(req: Request) {
     }
 
     // Поиск пользователя в базе данных по email из разобранного JWT-токена
-    const user = await findUserByEmail(db, parseJwt(token as string).email)
+    const user = (await findUserByEmail(
+      db,
+      parseJwt(token as string).email
+    )) as unknown as IUser
 
     // Возврат результата успешной валидации токена в формате JSON
     return NextResponse.json({
       status: 200,
       message: 'token is valid',
-      user,
+      user: { email: user.email, name: user.name, _id: user?._id },
     })
   } catch (error) {
     throw new Error((error as Error).message)
