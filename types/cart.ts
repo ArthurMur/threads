@@ -1,5 +1,7 @@
 // import { IBaseEffectProps } from './common'
 
+import { IBaseEffectProps } from './common'
+
 export interface ICartItem {
   _id: string
   clientId: string
@@ -26,14 +28,14 @@ export interface IAddProductToCartFx {
   setSpinner: (arg0: boolean) => void
 }
 
-// export interface IAddProductsFromLSToCartFx {
-//   jwt: string
-//   cartItems: ICartItem[]
-// }
+export interface IAddProductsFromLSToCartFx {
+  jwt: string
+  cartItems: ICartItem[]
+}
 
-// export interface IUpdateCartItemCountFx extends IBaseEffectProps {
-//   count: number
-// }
+export interface IUpdateCartItemCountFx extends IBaseEffectProps {
+  count: number
+}
 
 // export interface IDeleteCartItemBtnProps {
 //   btnDisabled: boolean

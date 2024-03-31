@@ -20,7 +20,7 @@ import { useEffect } from 'react'
 import { $user } from '@/context/user'
 import { useCartByAuth } from '@/hooks/useCartByAuth'
 import HeaderProfile from './HeaderProfile'
-import { setCartFromLS } from '@/context/cart'
+import { addProductsFromLSToCart, setCartFromLS } from '@/context/cart'
 import { setLang } from '@/context/lang'
 
 const Header = () => {
@@ -59,6 +59,21 @@ const Header = () => {
     }
     triggerLoginCheck()
   }, [])
+  // эффект для слежки за авторизацией. если пользователь авторизуется, то сихронизируемся с сервером
+  useEffect(() => {
+    if (isAuth) {
+      const auth = JSON.parse(localStorage.getItem('auth') as string)
+      //корзина из localStorage
+      const cartFromLS = JSON.parse(localStorage.getItem('cart') as string)
+      // если есть данные из корзины
+      if (cartFromLS && Array.isArray(cartFromLS)) {
+        addProductsFromLSToCart({
+          jwt: auth.accessToken,
+          cartItems: cartFromLS,
+        })
+      }
+    }
+  }, [isAuth])
 
   return (
     <header className='header'>

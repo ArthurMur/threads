@@ -142,3 +142,11 @@ export const handleShowSizeTable = (product: IProduct) => {
   addOverflowHiddenToBody()
   showSizeTable()
 }
+
+// получение количества добавленных в корзину товаров по размеру
+export const getCartItemCountBySize = (
+  cartItems: ICartItem[],
+  currentSize: string
+) =>
+  cartItems.find((item) => item.size === currentSize.toLocaleLowerCase())
+    ?.count || 0

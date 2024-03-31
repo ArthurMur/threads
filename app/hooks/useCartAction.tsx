@@ -8,6 +8,7 @@ import {
   addItemToCart,
   addProductToCartBySizeTable,
 } from '@/lib/utils/cart'
+import { updateCartItemCount } from '@/context/cart'
 
 // хук для работы с корзиной
 export const useCartAction = (isSizeTable = false) => {
@@ -27,6 +28,8 @@ export const useCartAction = (isSizeTable = false) => {
   const isProductInCart = isItemInList(currentCartByAuth, product._id)
   // стейт для показа спиннера добавления в корзину
   const [addToCartSpinner, setAddToCartSpinner] = useState(false)
+  // стейт для показа спиннера обновления счетчика
+  const [updateCountSpinner, setUpdateCountSpinner] = useState(false)
 
   // функция для добавления товара в корзину
   const handleAddToCart = (countFromCounter?: number) => {
@@ -48,27 +51,34 @@ export const useCartAction = (isSizeTable = false) => {
             : +cartItemBySize.count + 1
           : +cartItemBySize.count + 1
 
+        updateCartItemCount({
+          jwt: auth.accessToken,
+          id: cartItemBySize._id as string,
+          setSpinner: setUpdateCountSpinner,
+          count,
+        })
+
         addCartItemToLS(product, selectedSize, count)
         return
       }
-      // если таблица размеров открыта
-      if (isSizeTable) {
-        addItemToCart(
-          product,
-          setAddToCartSpinner,
-          countFromCounter || 1,
-          selectedSize
-        )
-        return
-      }
-      // если мы не в таблице размеров, то
-      addProductToCartBySizeTable(
+    }
+    // если таблица размеров открыта
+    if (isSizeTable) {
+      addItemToCart(
         product,
         setAddToCartSpinner,
         countFromCounter || 1,
         selectedSize
       )
+      return
     }
+    // если мы не в таблице размеров, то
+    addProductToCartBySizeTable(
+      product,
+      setAddToCartSpinner,
+      countFromCounter || 1,
+      selectedSize
+    )
   }
 
   return {
@@ -82,5 +92,6 @@ export const useCartAction = (isSizeTable = false) => {
     isProductInCart,
     currentCartByAuth,
     setAddToCartSpinner,
+    updateCountSpinner,
   }
 }
