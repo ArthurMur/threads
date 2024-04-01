@@ -14,7 +14,7 @@ const QuickViewModalSlider = ({
   }[]
 }) => {
   const isMedia1070 = useMediaQuery(1070)
-  const isMedia890 = useMediaQuery(890)
+  const isMedia380 = useMediaQuery(380)
 
   const settings = {
     dots: true,
@@ -38,7 +38,7 @@ const QuickViewModalSlider = ({
       {images.map((item) => (
         <div
           key={item.id}
-          style={{ width: isMedia890 ? 270 : isMedia1070 ? 350 : 480 }}
+          style={{ width: isMedia380 ? 270 : isMedia1070 ? 350 : 480 }}
           className={styles.modal__left__slider__slide}
         >
           <img src={item.src} alt={item.alt} />

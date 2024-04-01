@@ -48,6 +48,7 @@ export async function POST(req: Request) {
       inStock: productItem.inStock,
       clientId: reqBody.clientId,
       color: productItem.characteristics.color,
+      category: productItem.category,
     }
 
     const { insertedId } = await db.collection('cart').insertOne(newCartItem)

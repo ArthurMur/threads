@@ -13,17 +13,33 @@ import ProductCounter from '../ProductsListItem/ProductCounter'
 import AddToCartBtn from '../ProductsListItem/AddToCartBtn'
 import styles from '@/../styles/quick-view-modal/index.module.scss'
 import stylesForProduct from '@/../styles/product-list-item/index.module.scss'
-import Link from 'next/link'
 import ProductItemActionBtn from '@/components/elements/ProductItemActionBtn/ProductItemActionBtn'
+import { ICartItem } from '../../../../types/cart'
 
 const QuickViewModal = () => {
   const { lang, translations } = useLang()
-  const { product, selectedSize, setSelectedSize } = useCartAction()
+  const {
+    product,
+    selectedSize,
+    setSelectedSize,
+    handleAddToCart,
+    addToCartSpinner,
+    updateCountSpinner,
+    allCurrentCartItemCount,
+    currentCartItems,
+    setCount,
+    existingItem,
+    count,
+  } = useCartAction()
   const images = useProductImages(product)
 
   const handleCloseModal = () => {
     removeOverflowHiddenFromBody()
     closeQuickViewModal()
+  }
+
+  const addToCart = () => {
+    handleAddToCart(count)
   }
 
   return (
@@ -51,12 +67,12 @@ const QuickViewModal = () => {
         <h3 className={styles.modal__right__title}>{product.name}</h3>
         <div className={styles.modal__right__price}>
           {formatPrice(+product.price)} ₽
-        </div>
-        <div className={styles.modal__right__info}>
           <ProductAvailable
             vendorCode={product.vendorCode}
             inStock={+product.inStock}
           />
+        </div>
+        <div className={styles.modal__right__info}>
           <ProductColor color={product.characteristics.color} />
           {product.characteristics?.composition && (
             <ProductComposition
@@ -82,45 +98,51 @@ const QuickViewModal = () => {
                     currentSize={[key, value]}
                     selectedSize={selectedSize}
                     setSelectedSize={setSelectedSize}
-                    currentCartItems={[]}
+                    currentCartItems={currentCartItems}
                   />
                 ))}
               </ul>
             </div>
           )}
-          <div className={styles.modal__right__bottom}>
-            <span className={stylesForProduct.product__count_title}>
-              {translations[lang].product.count}
-            </span>
-            <div className={styles.modal__right__bottom__inner}>
-              {!!selectedSize ? (
-                <ProductCounter
-                  className={`counter ${styles.modal__right__bottom__counter}`}
-                  count={0}
-                />
-              ) : (
-                <div
-                  className={`counter ${styles.modal__right__bottom__counter}`}
-                  style={{ justifyContent: 'center' }}
-                >
-                  <span>{translations[lang].product.total_in_cart} 0</span>
-                </div>
-              )}
-              <AddToCartBtn
-                className={styles.modal__right__bottom__add}
-                text={translations[lang].product.to_cart}
-              />
-            </div>
-          </div>
         </div>
-        <div className={styles.modal__right__more}>
-          <Link
-            href={`/catalog/${product.category}/${product._id}`}
-            className={styles.modal__right__more__link}
-            onClick={handleCloseModal}
-          >
-            {translations[lang].product.more}
-          </Link>
+        <div className={styles.modal__right__bottom}>
+          <span className={stylesForProduct.product__count_title}>
+            {translations[lang].product.count}
+          </span>
+          <div className={styles.modal__right__bottom__inner}>
+            {!!selectedSize ? (
+              <ProductCounter
+                className={`counter ${styles.modal__right__bottom__counter}`}
+                count={count}
+                totalCount={+product.inStock}
+                initialCount={+(existingItem?.count || 1)}
+                setCount={setCount}
+                cartItem={existingItem as ICartItem}
+                updateCountAsync={false}
+              />
+            ) : (
+              <div
+                className={`counter ${styles.modal__right__bottom__counter}`}
+                style={{ justifyContent: 'center' }}
+              >
+                <span>
+                  {translations[lang].product.total_in_cart}{' '}
+                  {allCurrentCartItemCount}
+                </span>
+              </div>
+            )}
+            <AddToCartBtn
+              className={styles.modal__right__bottom__add}
+              text={translations[lang].product.to_cart}
+              handleAddToCart={addToCart}
+              addToCartSpinner={addToCartSpinner || updateCountSpinner}
+              btnDisabled={
+                addToCartSpinner ||
+                updateCountSpinner ||
+                allCurrentCartItemCount === +product.inStock
+              }
+            />
+          </div>
         </div>
       </div>
     </div>

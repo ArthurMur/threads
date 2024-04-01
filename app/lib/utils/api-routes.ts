@@ -224,3 +224,28 @@ export const replaceProductsInCollection = async (
     items,
   })
 }
+
+// Функция для удаления продукта из коллекции MongoDB
+export const deleteProduct = async (
+  clientPromise: Promise<MongoClient>, // Промис, возвращающий клиента MongoDB
+  req: Request, // Объект запроса Express.js
+  id: string, // Идентификатор продукта, который нужно удалить
+  collection: string // Название коллекции MongoDB, из которой нужно удалить продукт
+) => {
+  // Получаем данные маршрута аутентификации и подключаемся к базе данных MongoDB
+  const { db, validatedTokenResult } = await getAuthRouteData(
+    clientPromise,
+    req,
+    false
+  )
+
+  // Если аутентификация не прошла успешно, возвращаем ответ с ошибкой
+  if (validatedTokenResult.status !== 200) {
+    return NextResponse.json(validatedTokenResult)
+  }
+
+  // Удаляем продукт из коллекции MongoDB по его идентификатору
+  await db.collection(collection).deleteOne({ _id: new ObjectId(id) })
+
+  return NextResponse.json({ status: 204, id })
+}

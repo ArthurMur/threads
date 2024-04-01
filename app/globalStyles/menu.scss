@@ -71,7 +71,7 @@
     border-radius: 100%;
     transform: scale(0.04), translateY(9999px);
     overflow: hidden;
-    background-color: var(--purple5);
+    background-color: var(--background3);
   }
 }
 
@@ -91,7 +91,7 @@
   height: 100vh;
 
   @media (width <= 450px) {
-    padding-top: 20px;
+    padding-top: 10px;
   }
 
   &::before {

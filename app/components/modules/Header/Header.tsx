@@ -10,14 +10,14 @@ import {
 } from '@/lib/utils/common'
 import { openMenu, openSearchModal } from '@/context/modals'
 import Menu from './Menu'
-import CartPopup from './CartPopup'
+import CartPopup from './CartPopup/CartPopup'
 import { useUnit } from 'effector-react'
 import { $isAuth } from '@/context/auth'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { loginCheckFx } from '@/../api/auth'
 import { useEffect } from 'react'
-import { $user } from '@/context/user'
+// import { $user } from '@/context/user'
 import { useCartByAuth } from '@/hooks/useCartByAuth'
 import HeaderProfile from './HeaderProfile'
 import { addProductsFromLSToCart, setCartFromLS } from '@/context/cart'
@@ -27,7 +27,7 @@ const Header = () => {
   const isAuth = useUnit($isAuth)
   const loginCheckSpinner = useUnit(loginCheckFx.pending)
   const { lang, translations } = useLang()
-  const user = useUnit($user)
+  // const user = useUnit($user)
   const currentCartByAuth = useCartByAuth()
 
   console.log(currentCartByAuth)
