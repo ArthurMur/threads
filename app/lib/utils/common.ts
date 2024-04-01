@@ -9,6 +9,8 @@ import { ICartItem } from '../../../types/cart'
 import { IProduct } from '../../../types/common'
 import { setCurrentProduct } from '@/context/goods'
 import { setSizeTableSizes } from '@/context/sizeTable'
+import { EventCallable } from 'effector'
+import toast from 'react-hot-toast'
 
 // Функция для удаления стиля overflow:hidden у body
 export const removeOverflowHiddenFromBody = () => {
@@ -150,3 +152,26 @@ export const getCartItemCountBySize = (
 ) =>
   cartItems.find((item) => item.size === currentSize.toLocaleLowerCase())
     ?.count || 0
+
+// удаление товаров из localStorage
+export const deleteProductFromLS = <T>(
+  id: string,
+  key: string,
+  event: EventCallable<T>,
+  message: string,
+  withToast = true
+) => {
+  let items = JSON.parse(localStorage.getItem(key) as string)
+
+  if (!items) {
+    items = []
+  }
+
+  const updatedItems = items.filter(
+    (item: { clientId: string }) => item.clientId !== id
+  )
+
+  localStorage.setItem(key, JSON.stringify(updatedItems))
+  event(updatedItems)
+  withToast && toast.success(message)
+}

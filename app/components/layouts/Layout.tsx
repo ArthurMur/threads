@@ -70,7 +70,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         )}
         {showSizeTable && <SizeTable />}
       </AnimatePresence>
-      {!isMedia800 && showQuickViewModal && <QuickViewModal />}
+      {showQuickViewModal && <QuickViewModal />}
       <div
         className={`header__search-overlay ${searchModal ? 'overlay-active' : ''}`}
         onClick={handleCloseSearchModal}

@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import { IProduct } from '@/../../types/common'
 import { handleShowSizeTable, idGenerator, isUserAuth } from './common'
 import { addProductToCart, setCartFromLS } from '@/context/cart'
@@ -62,17 +63,18 @@ export const addCartItemToLS = (
   // Если товар уже есть в корзине
   if (existingItem) {
     // Обновление количества товара
-    const updatedCount =
+    const updatedCountWithSize =
       existingItem.count !== count ? count : +existingItem.count + 1
-
-    const updatedCart = cartFromLS.map(
-      (
-        item // Обновление корзины с учетом изменений
-      ) =>
-        // Если товар совпадает с существующим и выбранным размером
-        item.productId === existingItem.productId && item.size === selectedSize
-          ? { ...existingItem, count: updatedCount } // Обновить количество товара
-          : item // Вернуть товар без изменений
+    // Обновление данных о существующем товаре в корзине
+    const updatedCart = cartFromLS.map((item) =>
+      item.productId === existingItem.productId && item.size === selectedSize
+        ? {
+            ...existingItem,
+            count: selectedSize.length
+              ? updatedCountWithSize
+              : +existingItem.count + 1,
+          }
+        : item
     )
 
     localStorage.setItem('cart', JSON.stringify(updatedCart)) // Обновление данных о корзине в локальном хранилище
@@ -124,3 +126,28 @@ export const addProductToCartBySizeTable = (
   //если размер не был выбран, то показываем модалку размеров
   handleShowSizeTable(product)
 }
+
+// Функция для обновления количества товаров в корзине в локальном хранилище
+export const updateCartItemCountInLS = (cartItemId: string, count: number) => {
+  let cart: ICartItem[] = JSON.parse(localStorage.getItem('cart') as string)
+
+  // Если в локальном хранилище еще нет корзины, создаем новую
+  if (!cart) {
+    cart = []
+  }
+
+  // Обновляем корзину, заменяя количество товаров у элемента с заданным идентификатором
+  const updatedCart = cart.map((item) =>
+    item.clientId === cartItemId ? { ...item, count } : item
+  )
+
+  // Обновляем данные о корзине в локальном хранилище
+  localStorage.setItem('cart', JSON.stringify(updatedCart))
+  // Устанавливаем корзину из локального хранилища
+  setCartFromLS(updatedCart as ICartItem[])
+}
+
+// Функция для подсчета общего количества товаров в корзине
+export const countWholeCartItemsAmount = (cart: ICartItem[]) =>
+  // Сводим все количество товаров в корзине
+  cart.reduce((defaultCount, item) => defaultCount + +item.count, 0)

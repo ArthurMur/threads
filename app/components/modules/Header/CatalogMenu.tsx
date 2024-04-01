@@ -19,7 +19,7 @@ const CatalogMenu = () => {
   const [activeListId, setActiveListId] = useState(0) // Состояние для отслеживания активного списка
   const { lang, translations } = useLang() // Получение текущего языка и переводов
   const { itemVariants, sideVariants, popupZIndex } = useMenuAnimation(
-    2,
+    11,
     catalogMenuIsOpen
   ) // Получение вариантов анимации меню
   const isMedia450 = useMediaQuery(450) // Получение информации о том, соответствует ли ширина экрана медиа-запросу

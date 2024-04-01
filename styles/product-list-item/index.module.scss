@@ -11,6 +11,7 @@
     align-items: center;
     justify-content: space-between;
     border-radius: var(--border-radius);
+    cursor: pointer;
 
     @media (width <= 800px) {
       background-color: var(--dark);
@@ -96,7 +97,7 @@
 
     &__price {
       color: var(--white);
-      font-size: 1.5em;
+      font-size: 1.4em;
       font-weight: 500;
     }
 
@@ -110,7 +111,7 @@
       font-weight: 500;
       border-radius: 32px;
       background-color: var(--purple);
-      padding: 12px 24px !important;
+      padding: 10px !important;
       transition:
         background-color 0.2s ease-in-out,
         opacity 0.2s ease-in-out,
@@ -313,6 +314,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 24px;
+  font-size: 0.75em;
 
   @media (width <= 590px) {
     margin-bottom: 16px;
@@ -360,5 +362,9 @@
     margin-bottom: 12px;
     color: var(--white);
     font-size: 0.875em;
+
+    @media (width <= 450px) {
+      text-align: center;
+    }
   }
 }

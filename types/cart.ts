@@ -15,7 +15,7 @@ export interface ICartItem {
   totalPrice: string
   inStock: string
   color: string
-  // category: string
+  category: string
 }
 
 export interface IAddProductToCartFx {
@@ -37,10 +37,10 @@ export interface IUpdateCartItemCountFx extends IBaseEffectProps {
   count: number
 }
 
-// export interface IDeleteCartItemBtnProps {
-//   btnDisabled: boolean
-//   callback: VoidFunction
-//   className?: string
-// }
+export interface IDeleteCartItemBtnProps {
+  btnDisabled: boolean
+  callback: VoidFunction
+  className?: string
+}
 
-// export type IDeleteCartItemsFx = IBaseEffectProps
+export type IDeleteCartItemsFx = IBaseEffectProps

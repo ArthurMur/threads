@@ -2,7 +2,6 @@
 import { useLang } from '@/hooks/useLang'
 import { IProductsListItemProps } from '@/../types/modules'
 import styles from '@/../styles/product-list-item/index.module.scss'
-import Link from 'next/link'
 import ProductSubtitle from '@/components/elements/ProductSubtitle/ProductSubtitle'
 import Image from 'next/image'
 import {
@@ -13,7 +12,6 @@ import {
 import ProductLabel from './ProductLabel'
 import ProductItemActionBtn from '@/components/elements/ProductItemActionBtn/ProductItemActionBtn'
 import ProductAvailable from '@/components/elements/ProductAvailable/ProductAvailable'
-import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { showQuickViewModal } from '@/context/modals'
 import { setCurrentProduct } from '@/context/goods'
 import { productsWithoutSizes } from '@/constants/product'
@@ -25,7 +23,6 @@ import { addProductToCartBySizeTable } from '@/lib/utils/cart'
 const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
   const { lang, translations } = useLang()
   const isTitleForNew = title === translations[lang].main_page.new_title
-  const isMedia800 = useMediaQuery(800)
   const { addToCartSpinner, setAddToCartSpinner, currentCartByAuth } =
     useCartAction()
   const isProductInCart = isItemInList(currentCartByAuth, item._id)
@@ -45,41 +42,36 @@ const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
     <>
       {item.characteristics.collection === 'line' &&
       item.type === 't-shirts' ? (
-        <li className={styles.list__item_ad}>
-          <Link
-            href={`/catalog/${item.category}/${item._id}`}
-            className={styles.list__item_ad__inner}
-          >
-            <ProductSubtitle
-              subtitleClassName={styles.list__item_ad__subtitle}
-              subtitleRectClassName={styles.list__item_ad__subtitle__rect}
+        <li className={styles.list__item_ad} onClick={handleShowQuickViewModal}>
+          <ProductSubtitle
+            subtitleClassName={styles.list__item_ad__subtitle}
+            subtitleRectClassName={styles.list__item_ad__subtitle__rect}
+          />
+          <div className={styles.list__item_ad__img}>
+            <Image
+              src={item.images[0]}
+              alt={item.name}
+              sizes='auto'
+              fill
+              objectFit='contain'
             />
-            <div className={styles.list__item_ad__img}>
-              <Image
-                src={item.images[0]}
-                alt={item.name}
-                sizes='auto'
-                fill
-                objectFit='contain'
-              />
-            </div>
-            <p className={styles.list__item_ad__title}>
-              <span>
-                {translations[lang].main_page.tShirt} «Disorder»{' '}
-                {
-                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                  //@ts-ignore
-                  translations[lang].main_page[
-                    item.images[0].split('/img/').join('').split('-')[0]
-                  ]
-                }
-              </span>
-              <span>{formatPrice(+item.price)} ₽</span>
-            </p>
-          </Link>
+          </div>
+          <p className={styles.list__item_ad__title}>
+            <span>
+              {translations[lang].main_page.tShirt} «Disorder»{' '}
+              {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                //@ts-ignore
+                translations[lang].main_page[
+                  item.images[0].split('/img/').join('').split('-')[0]
+                ]
+              }
+            </span>
+            <span>{formatPrice(+item.price)} ₽</span>
+          </p>
         </li>
       ) : (
-        <li className={styles.list__item}>
+        <li className={styles.list__item} onClick={handleShowQuickViewModal}>
           {title ? (
             <span
               className={`${styles.list__item__label} ${
@@ -106,18 +98,8 @@ const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
               text={translations[lang].product.add_to_comparison}
               iconClass={'actions__btn_comparison'}
             />
-            {!isMedia800 && (
-              <ProductItemActionBtn
-                text={translations[lang].product.quick_view}
-                iconClass={'actions__btn_quick_view'}
-                callback={handleShowQuickViewModal}
-              />
-            )}
           </div>
-          <Link
-            href={`/catalog/${item.category}/${item._id}`}
-            className={styles.list__item__img}
-          >
+          <div className={styles.list__item__img}>
             <Image
               src={item.images[0]}
               alt={item.name}
@@ -125,13 +107,9 @@ const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
               fill
               objectFit='contain'
             />
-          </Link>
+          </div>
           <div className={styles.list__item__inner}>
-            <h3 className={styles.list__item__title}>
-              <Link href={`/catalog/${item.category}/${item._id}`}>
-                {item.name}
-              </Link>
-            </h3>
+            <h3 className={styles.list__item__title}>{item.name}</h3>
             <ProductAvailable
               vendorCode={item.vendorCode}
               inStock={+item.inStock}

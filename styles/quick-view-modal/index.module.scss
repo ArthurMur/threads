@@ -2,7 +2,7 @@
   width: 992px;
   height: 568px;
   position: fixed;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
@@ -19,6 +19,14 @@
     inset: 0;
     backdrop-filter: blur(12px);
     border-radius: var(--border-radius);
+
+    @media (width <= 890px) {
+      height: calc(100% + 350px);
+    }
+
+    @media (width <= 450px) {
+      height: calc(100% + 480px);
+    }
   }
 
   @media (width <= 1070px) {
@@ -26,7 +34,33 @@
   }
 
   @media (width <= 890px) {
-    width: 733px;
+    width: calc(100% - 20px);
+    height: 568px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--purple);
+      border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: var(--purple2);
+    }
+  }
+
+  @media (width <= 800px) {
+    top: 50%;
+    height: 500px;
   }
 
   &__close {
@@ -62,6 +96,11 @@
     display: flex;
     align-items: center;
 
+    @media (width <= 890px) {
+      top: 470px;
+      right: 15px;
+    }
+
     div {
       button {
         margin-bottom: 0 !important;
@@ -81,18 +120,31 @@
     }
 
     @media (width <= 890px) {
+      align-self: center;
+    }
+
+    @media (width <= 380px) {
       max-width: 270px;
+      align-self: center;
     }
 
     &__slider {
       position: relative;
       max-height: 480px;
 
+      @media (width <= 890px) {
+        height: 350px;
+      }
+
       &__slide {
         display: flex !important;
         align-items: center;
         justify-content: center;
         height: 480px;
+
+        @media (width <= 890px) {
+          height: 380px;
+        }
 
         img {
           max-width: 100%;
@@ -157,6 +209,12 @@
     position: relative;
     padding: 32px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @media (width <= 890px) {
+      margin-top: 50px;
+    }
 
     &__title {
       margin: 0;
@@ -181,12 +239,19 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
+          margin-bottom: 10px;
         }
       }
 
       &__sizes {
         display: flex;
         align-items: center;
+        gap: 15px;
+
+        @media (width <= 450px) {
+          display: grid;
+          grid-template-columns: 50% 50%;
+        }
 
         &__item {
           position: relative;
@@ -194,14 +259,6 @@
           height: 32px;
           border-radius: 24px;
           transition: background-color 0.2s ease-in-out;
-
-          &:not(:last-child) {
-            margin-right: 12px;
-
-            @media (width <= 420px) {
-              margin-bottom: 12px;
-            }
-          }
 
           &:hover {
             background-color: var(--purple) !important;
@@ -249,9 +306,21 @@
     }
 
     &__bottom {
+      display: flex;
+      flex-direction: column;
+      margin-top: auto;
+      align-self: center;
+
       &__inner {
         display: flex;
+        gap: 24px;
         align-items: center;
+
+        @media (width <= 450px) {
+          flex-direction: column;
+          gap: 5px;
+          justify-content: center;
+        }
       }
 
       &__add {
@@ -277,7 +346,6 @@
       }
 
       &__counter {
-        margin-right: 24px;
         min-height: 46px;
         width: 212px;
         padding: 12px 16px;
