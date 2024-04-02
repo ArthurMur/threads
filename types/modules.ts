@@ -31,3 +31,8 @@ export interface IProductLabelProps {
   isNew: boolean
   isBestseller: boolean
 }
+
+export interface OrderInfoBlock {
+  isCorrectPromotionalCode?: boolean
+  isOrderPage?: boolean
+}

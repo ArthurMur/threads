@@ -13,6 +13,7 @@ import './globalStyles/slick-theme.scss'
 import './globalStyles/slick.scss'
 import './globalStyles/auth-popup.scss'
 import './globalStyles/header-profile.scss'
+import './globalStyles/cookie-popup.scss'
 
 export const metadata: Metadata = {
   title: 'thread',

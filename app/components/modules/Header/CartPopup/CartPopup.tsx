@@ -31,6 +31,7 @@ const CartPopup = forwardRef<HTMLDivElement, IWrappedComponentProps>(
           href='/cart'
           onMouseEnter={handleShowPopup} // Обработчик для отображения всплывающего окна при наведении
         />
+        {!!currentCartByAuth.length && <span className='not-empty' />}
         <AnimatePresence>
           {/* Компонент для анимации появления и исчезновения дочерних элементов */}
           {open && ( // Условие отображения всплывающего окна

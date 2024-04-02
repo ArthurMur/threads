@@ -162,6 +162,27 @@ a {
   text-decoration-line: underline;
 }
 
+.not-empty {
+  content: '';
+  position: absolute;
+  top: 9px;
+  right: 2px;
+  width: 8px;
+  height: 8px;
+  background-color: var(--red);
+  border-radius: 50%;
+}
+
+.not-empty-mobile {
+  top: 12px;
+  right: 15px;
+}
+
+.not-empty-mobile-favorite {
+  top: 12px;
+  right: 25px;
+}
+
 .counter button:disabled {
   opacity: 0.5;
   pointer-events: none;

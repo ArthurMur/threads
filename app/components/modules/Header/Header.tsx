@@ -18,7 +18,6 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { loginCheckFx } from '@/../api/auth'
 import { useEffect } from 'react'
 // import { $user } from '@/context/user'
-import { useCartByAuth } from '@/hooks/useCartByAuth'
 import HeaderProfile from './HeaderProfile'
 import { addProductsFromLSToCart, setCartFromLS } from '@/context/cart'
 import { setLang } from '@/context/lang'
@@ -27,10 +26,6 @@ const Header = () => {
   const isAuth = useUnit($isAuth)
   const loginCheckSpinner = useUnit(loginCheckFx.pending)
   const { lang, translations } = useLang()
-  // const user = useUnit($user)
-  const currentCartByAuth = useCartByAuth()
-
-  console.log(currentCartByAuth)
 
   // Обработчик клика на кнопку, который добавляет overflow-hidden к body
   const handleOpenMenu = () => {
@@ -59,6 +54,7 @@ const Header = () => {
     }
     triggerLoginCheck()
   }, [])
+
   // эффект для слежки за авторизацией. если пользователь авторизуется, то сихронизируемся с сервером
   useEffect(() => {
     if (isAuth) {
