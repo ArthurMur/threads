@@ -1,6 +1,5 @@
 .main {
   padding: 100px 20px 0;
-  background-color: var(--dark-blue2);
 }
 
 .cart {
@@ -34,10 +33,6 @@
     min-width: 352px;
 
     @media (width <= 1000px) {
-      display: flex;
-    }
-
-    @media (width <= 740px) {
       display: block;
     }
 
@@ -142,7 +137,8 @@
 
       &__wrapper {
         display: flex;
-        align-items: start;
+        align-items: center;
+        min-height: 48px;
 
         @media (width <= 530px) {
           flex-direction: column;
@@ -204,6 +200,7 @@
         grid-template-columns: repeat(3, 1fr);
         column-gap: 32px;
         margin-left: auto;
+        align-items: center;
 
         @media (width <= 1280px) {
           display: flex;
@@ -272,6 +269,8 @@
     align-items: center;
 
     @media (width <= 1000px) {
+      padding: 30px 0;
+      gap: 20px;
       flex-direction: column;
       margin: 0 auto;
     }
@@ -293,12 +292,11 @@
       color: var(--white);
 
       @media (width <= 1000px) {
+        width: 100%;
         margin-right: 0;
-        margin-bottom: 30px;
       }
 
       @media (width <= 740px) {
-        width: 100%;
         margin-bottom: 8px;
       }
 
@@ -319,7 +317,7 @@
       line-height: 24px;
       width: 320px;
 
-      @media (width <= 740px) {
+      @media (width <= 1000px) {
         width: 100%;
       }
     }

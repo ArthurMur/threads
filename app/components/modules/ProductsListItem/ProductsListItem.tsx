@@ -34,7 +34,9 @@ const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
     setCurrentProduct(item)
   }
   // Обработчик клика на кнопку добавления в корзину
-  const addToCart = () => {
+  const addToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
+    // Остановка всплытия события, чтобы предотвратить вызов обработчика на родительском элементе
+    e.stopPropagation()
     addProductToCartBySizeTable(item, setAddToCartSpinner, 1)
   }
 

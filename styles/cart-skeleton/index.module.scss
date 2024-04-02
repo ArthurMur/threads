@@ -6,9 +6,10 @@
 }
 
 .skeleton__item {
-  background-color: #2a323f;
+  background-color: var(--gray9);
   overflow: hidden !important;
   padding: 0;
+  border-radius: var(--border-radius);
   height: 185px;
   margin-bottom: 25px;
 

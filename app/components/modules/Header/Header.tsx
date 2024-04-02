@@ -19,7 +19,11 @@ import { loginCheckFx } from '@/../api/auth'
 import { useEffect } from 'react'
 // import { $user } from '@/context/user'
 import HeaderProfile from './HeaderProfile'
-import { addProductsFromLSToCart, setCartFromLS } from '@/context/cart'
+import {
+  addProductsFromLSToCart,
+  setCartFromLS,
+  setShouldShowEmpty,
+} from '@/context/cart'
 import { setLang } from '@/context/lang'
 
 const Header = () => {
@@ -40,6 +44,7 @@ const Header = () => {
   }
 
   useEffect(() => {
+    const auth = JSON.parse(localStorage.getItem('auth') as string)
     const lang = JSON.parse(localStorage.getItem('lang') as string)
     const cart = JSON.parse(localStorage.getItem('cart') as string)
 
@@ -49,10 +54,19 @@ const Header = () => {
       }
     }
 
-    if (cart) {
+    triggerLoginCheck()
+
+    if (auth?.accessToken) {
+      return
+    }
+
+    if (cart && Array.isArray(cart)) {
+      if (!cart.length) {
+        setShouldShowEmpty(true)
+        return
+      }
       setCartFromLS(cart)
     }
-    triggerLoginCheck()
   }, [])
 
   // эффект для слежки за авторизацией. если пользователь авторизуется, то сихронизируемся с сервером

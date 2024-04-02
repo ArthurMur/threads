@@ -11,6 +11,7 @@ import { setCurrentProduct } from '@/context/goods'
 import { setSizeTableSizes } from '@/context/sizeTable'
 import { EventCallable } from 'effector'
 import toast from 'react-hot-toast'
+import { setShouldShowEmpty } from '@/context/cart'
 
 // Функция для удаления стиля overflow:hidden у body
 export const removeOverflowHiddenFromBody = () => {
@@ -174,6 +175,10 @@ export const deleteProductFromLS = <T>(
   localStorage.setItem(key, JSON.stringify(updatedItems))
   event(updatedItems)
   withToast && toast.success(message)
+
+  if (!updatedItems.length) {
+    setShouldShowEmpty(true)
+  }
 }
 
 // формирование сообщения о количестве добавленных в корзину товаров

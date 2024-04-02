@@ -1,7 +1,11 @@
 /* eslint-disable indent */
 import { IProduct } from '@/../../types/common'
 import { handleShowSizeTable, idGenerator, isUserAuth } from './common'
-import { addProductToCart, setCartFromLS } from '@/context/cart'
+import {
+  addProductToCart,
+  setCartFromLS,
+  setShouldShowEmpty,
+} from '@/context/cart'
 import toast from 'react-hot-toast'
 import { ICartItem } from '../../../types/cart'
 import { productsWithoutSizes } from '@/constants/product'
@@ -54,6 +58,8 @@ export const addCartItemToLS = (
   if (!cartFromLS) {
     cartFromLS = []
   }
+
+  setShouldShowEmpty(false)
 
   // Поиск существующего товара в корзине
   const existingItem = cartFromLS.find(
