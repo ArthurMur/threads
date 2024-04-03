@@ -13,6 +13,7 @@ const AddToCartBtn = ({
     className={`btn-reset ${className}`}
     disabled={btnDisabled}
     onClick={handleAddToCart}
+    aria-label='Add to cart'
   >
     {addToCartSpinner ? (
       <FontAwesomeIcon icon={faSpinner} spin color='#fff' />

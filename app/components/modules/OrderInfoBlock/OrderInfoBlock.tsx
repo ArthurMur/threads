@@ -4,14 +4,14 @@ import { useLang } from '@/hooks/useLang'
 import { useTotalPrice } from '@/hooks/useTotalPrice'
 import { countWholeCartItemsAmount } from '@/lib/utils/cart'
 import { formatPrice, showCountMessage } from '@/lib/utils/common'
-import { OrderInfoBlock } from '@/../types/modules'
+import { IOrderInfoBlock } from '@/../types/modules'
 import { useCartByAuth } from '@/hooks/useCartByAuth'
 import styles from '@/../styles/order-block/index.module.scss'
 
 const OrderInfoBlock = ({
   isCorrectPromotionalCode,
   isOrderPage,
-}: OrderInfoBlock) => {
+}: IOrderInfoBlock) => {
   const { lang, translations } = useLang()
   const currentCartByAuth = useCartByAuth()
   const [isUserAgree, setIsUserAgree] = useState(false)

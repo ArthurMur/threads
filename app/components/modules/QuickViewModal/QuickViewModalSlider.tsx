@@ -29,6 +29,7 @@ const QuickViewModalSlider = ({
     customPaging: () => (
       <button
         className={`btn-reset ${styles.modal__left__slider__slide__dot}`}
+        aria-label='Slide dot'
       />
     ),
   }

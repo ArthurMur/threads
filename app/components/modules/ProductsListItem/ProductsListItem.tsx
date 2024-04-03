@@ -128,6 +128,7 @@ const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
               }`}
               disabled={addToCartSpinner}
               style={addToCartSpinner ? { minWidth: 125, height: 48 } : {}}
+              aria-label='Add to cart'
             >
               {addToCartSpinner ? (
                 <FontAwesomeIcon icon={faSpinner} spin color='#fff' />
@@ -141,6 +142,7 @@ const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
             <button
               className={`btn-reset ${styles.list__item__cart}`}
               onClick={addToCart}
+              aria-label='Add to cart'
             >
               {translations[lang].product.to_cart}
             </button>

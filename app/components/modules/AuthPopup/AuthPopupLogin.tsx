@@ -45,7 +45,12 @@ const AuthPopupLogin = ({ toggleAuth, isSideActive }: IAuthSideProps) => {
           <PasswordInput register={register} errors={errors} />
           <div className='card-body__inner'>
             <div className='inner__top'>
-              <button className='inner__btn' type='submit' disabled={spinner}>
+              <button
+                className='inner__btn'
+                type='submit'
+                disabled={spinner}
+                aria-label='Login'
+              >
                 {spinner ? (
                   // Иконка загрузки, если отправка формы в процессе
                   <FontAwesomeIcon icon={faSpinner} spin />
@@ -63,6 +68,7 @@ const AuthPopupLogin = ({ toggleAuth, isSideActive }: IAuthSideProps) => {
                 type='button'
                 className='btn-reset inner__switch'
                 onClick={toggleAuth}
+                aria-label='Register'
               >
                 {translations[lang].auth_popup.register}!
               </button>

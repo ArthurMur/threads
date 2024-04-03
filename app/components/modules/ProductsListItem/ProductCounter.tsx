@@ -85,12 +85,14 @@ const ProductCounter = ({
         className='btn-reset'
         onClick={decrease}
         disabled={disableDecrease || spinner}
+        aria-label='Decrase'
       />
       <span>{spinner ? <FontAwesomeIcon icon={faSpinner} spin /> : count}</span>
       <button
         className='btn-reset'
         onClick={increase}
         disabled={disableIncrease || spinner}
+        aria-label='Incrase'
       />
     </div>
   )

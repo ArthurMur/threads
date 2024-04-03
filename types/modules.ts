@@ -32,7 +32,7 @@ export interface IProductLabelProps {
   isBestseller: boolean
 }
 
-export interface OrderInfoBlock {
+export interface IOrderInfoBlock {
   isCorrectPromotionalCode?: boolean
   isOrderPage?: boolean
 }
@@ -41,6 +41,10 @@ export interface IEmptyPageContentProps {
   subtitle: string
   description: string
   bgClassName: string
+  emptyWord?: string
+  bgWordClassName?: string
+  oopsWord?: string
+  title?: string
 }
 
 export interface IContentTitleProps {

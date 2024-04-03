@@ -5,6 +5,7 @@ const QuickViewModalSliderArrow = (props: IQuickViewModalSliderArrowProps) => (
   <button
     className={`btn-reset ${styles.modal__left__slider__slide__arrow} ${props.directionClassName} `}
     onClick={props.onClick}
+    aria-label='Arrow'
   />
 )
 
