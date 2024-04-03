@@ -150,6 +150,7 @@
     }
 
     &:hover {
+      outline: 1px solid var(--gray4);
       background-color: var(--background);
       box-shadow:
         0 12px 20px 0 rgb(0 0 0 / 20%),

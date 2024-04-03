@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import PagesLayout from './components/layouts/PagesLayout'
 import './globalStyles/normalize.css'
 import './globalStyles/globals.scss'
@@ -18,6 +18,10 @@ import './globalStyles/cookie-popup.scss'
 export const metadata: Metadata = {
   title: 'thread',
   description: 'Оnline clothing store',
+}
+
+export const viewport: Viewport = {
+  themeColor: 'white',
 }
 
 export default function RootLayout({

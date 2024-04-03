@@ -11,6 +11,7 @@ const CatalogMenuButton = ({
     style={{
       color: isActive ? '#e8e9ea' : '#a5a8ad',
     }}
+    aria-label='Catalog menu'
   >
     {name}
   </button>

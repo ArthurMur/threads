@@ -47,6 +47,7 @@ const QuickViewModal = () => {
       <button
         className={`btn-reset ${styles.modal__close}`}
         onClick={handleCloseModal}
+        aria-label='Close'
       />
       <div className={styles.modal__actions}>
         <ProductItemActionBtn

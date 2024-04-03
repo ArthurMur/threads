@@ -11,6 +11,7 @@ const HeroSlide = ({ slide }: { slide: IHeroSlide }) => (
       src={slide.image} // Источник изображения
       alt={slide.title} // Альтернативный текст изображения
       className={styles.hero__slider__slide__img} // Класс стилей для изображения
+      loading='eager'
     />
     <HeroSlideTooltip title={slide.title} image={slide.image} />
     {/* Всплывающая подсказка для слайда */}

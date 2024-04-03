@@ -238,6 +238,7 @@ const SizeTable = () => {
       <button
         className={`btn-reset ${styles.size_table__close}`}
         onClick={handleCloseSizeTable}
+        aria-label='Close'
       />
       <h2 className={styles.size_table__title}>
         {translations[lang].size_table.title}

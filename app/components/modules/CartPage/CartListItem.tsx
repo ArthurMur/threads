@@ -27,6 +27,7 @@ const CartListItem = ({ item }: { item: ICartItem }) => {
         disabled={deleteSpinner}
         className={`btn-reset ${styles.cart__list__item__delete}`}
         onClick={handleDeleteCartItem}
+        aria-label='Delete'
       >
         {deleteSpinner ? (
           <FontAwesomeIcon icon={faSpinner} spin color='#fff' />

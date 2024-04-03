@@ -32,6 +32,7 @@ const ProductItemActionBtn = ({
         onMouseEnter={showTooltip}
         onMouseLeave={hideTooltip}
         style={{ marginBottom: marginBottom || 16 }}
+        aria-label='Profile'
       />
       {withTooltip && (
         <AnimatePresence>

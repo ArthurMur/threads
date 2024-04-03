@@ -28,6 +28,7 @@ const CookieAlert = ({
       <button
         className='btn-reset cookie-popup__close'
         onClick={handleCloseAlert}
+        aria-label='Close'
       />
       <p
         className='cookie-popup__text'
@@ -38,6 +39,7 @@ const CookieAlert = ({
       <button
         className='btn-reset cookie-popup__accept'
         onClick={handleAcceptCookie}
+        aria-label='Accept'
       >
         {translations[lang].common.accept}
       </button>

@@ -47,7 +47,12 @@ const AuthPopupRegistration = ({
           <PasswordInput register={register} errors={errors} />
           <div className='card-body__inner'>
             <div className='inner__top'>
-              <button className='inner__btn' type='submit' disabled={spinner}>
+              <button
+                className='inner__btn'
+                type='submit'
+                disabled={spinner}
+                aria-label='Register'
+              >
                 {spinner ? (
                   <FontAwesomeIcon icon={faSpinner} spin />
                 ) : (
@@ -63,6 +68,7 @@ const AuthPopupRegistration = ({
                 type='button'
                 className='btn-reset inner__switch'
                 onClick={toggleAuth}
+                aria-label='Login'
               >
                 {translations[lang].auth_popup.login_text}!
               </button>

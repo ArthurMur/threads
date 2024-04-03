@@ -88,7 +88,11 @@ const Header = () => {
   return (
     <header className='header'>
       <div className='container header__container'>
-        <button className='btn-reset header__burger' onClick={handleOpenMenu}>
+        <button
+          className='btn-reset header__burger'
+          onClick={handleOpenMenu}
+          aria-label='Burger'
+        >
           {translations[lang].header.menu_btn}
         </button>
         <Menu />
@@ -100,6 +104,7 @@ const Header = () => {
             <button
               className='btn-reset header__links__item__btn header__links__item__btn--search'
               onClick={handleOpenSearchModal}
+              aria-label='Search'
             />
           </li>
           <li className='header__links__item'>
@@ -126,6 +131,7 @@ const Header = () => {
               <button
                 className='btn-reset header__links__item__btn header__links__item__btn--profile'
                 onClick={handleOpenAuthPopup}
+                aria-label='Profile'
               />
             )}
           </li>

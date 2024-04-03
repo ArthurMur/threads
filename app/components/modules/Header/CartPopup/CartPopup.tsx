@@ -47,6 +47,7 @@ const CartPopup = forwardRef<HTMLDivElement, IWrappedComponentProps>(
               <button
                 className='btn-reset cart-popup__close' // Кнопка закрытия всплывающего окна
                 onClick={handleHidePopup} // Обработчик для скрытия всплывающего окна при клике на кнопку
+                aria-label='Close'
               />
               <h3 className='cart-popup__title'>
                 {translations[lang].breadcrumbs.cart}

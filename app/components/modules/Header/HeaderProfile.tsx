@@ -19,6 +19,7 @@ const HeaderProfile = forwardRef<HTMLDivElement, IWrappedComponentProps>(
         <button
           className='btn-reset header-profile__btn'
           onClick={handleTogglePopup}
+          aria-label='Profile'
         >
           <Image
             src={src ? src : '/img/profile.svg'}
@@ -37,7 +38,10 @@ const HeaderProfile = forwardRef<HTMLDivElement, IWrappedComponentProps>(
             >
               <li className='header-profile__arrow' />
               <li className='header-profile__item'>
-                <button className='btn-reset header-profile__item__btn'>
+                <button
+                  className='btn-reset header-profile__item__btn'
+                  aria-label='Profile'
+                >
                   {translations[lang].header.profile}
                 </button>
               </li>
@@ -45,6 +49,7 @@ const HeaderProfile = forwardRef<HTMLDivElement, IWrappedComponentProps>(
                 <button
                   className='btn-reset header-profile__item__btn'
                   onClick={handleLogout}
+                  aria-label='Logout'
                 >
                   {translations[lang].header.logout}
                 </button>

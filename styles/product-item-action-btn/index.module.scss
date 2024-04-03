@@ -51,10 +51,6 @@
       mask: url('/img/comparison-checked.svg') no-repeat 50% 50%;
     }
 
-    &_quick_view::before {
-      mask: url('/img/quick-view.svg') no-repeat 50% 50%;
-    }
-
     &:hover::before {
       transition: background-color 0.2s ease-in-out;
       background-color: var(--green);
