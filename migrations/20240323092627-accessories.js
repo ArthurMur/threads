@@ -22,10 +22,15 @@ const textures = ['nubuck', 'nappa', 'suede', 'naplak']
 const styles = ['bucket bag', 'retro style', 'sports', 'travel']
 const seasons = ['demi-season', 'all season']
 
+const getRandomImageByType = (type) => {
+  const filteredImages = images.filter((image) => image.includes(type))
+  return getRandomArrayValue(filteredImages)
+}
+
 module.exports = {
   async up(db) {
     return db.collection('accessories').insertMany(
-      [...Array(50)].map(() => {
+      [...Array(20)].map(() => {
         const type =
           accessoryTypes[Math.floor(Math.random() * accessoryTypes.length)]
 
@@ -59,7 +64,7 @@ module.exports = {
           name: faker.lorem.sentence(2),
           description: faker.lorem.sentences(10),
           characteristics: characteristics.find((item) => item.type === type),
-          images: images.filter((item) => item.includes(type)),
+          images: [getRandomImageByType(type)],
           vendorCode: faker.string.numeric(4),
           inStock: faker.string.numeric(2),
           isBestseller: faker.datatype.boolean(),

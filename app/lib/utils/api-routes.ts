@@ -38,12 +38,12 @@ export const getNewAndBestsellerGoods = async (db: Db, fieldName: string) => {
         (item) =>
           item[fieldName] && Object.values(item.sizes).some((value) => value)
       )
-      .slice(0, 2),
+      .slice(0, 4),
     ...accessories
       .filter(
         (item) => item[fieldName] && Object.values(item).some((value) => value)
       )
-      .slice(0, 2),
+      .slice(0, 4),
   ])
 }
 

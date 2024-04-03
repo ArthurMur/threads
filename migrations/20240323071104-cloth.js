@@ -49,10 +49,15 @@ const lineImages = [
   '/img/t-shirts-5.png',
 ]
 
+const getRandomImageByType = (type) => {
+  const filteredImages = images.filter((image) => image.includes(type))
+  return getRandomArrayValue(filteredImages)
+}
+
 module.exports = {
   async up(db) {
     return db.collection('cloth').insertMany(
-      [...Array(50)].map(() => {
+      [...Array(20)].map(() => {
         const type = clothTypes[Math.floor(Math.random() * clothTypes.length)]
         const characteristics = [
           {
@@ -111,7 +116,7 @@ module.exports = {
           images:
             type === 't-shirts' && currentCharacteristics.collection === 'line'
               ? [getRandomArrayValue(lineImages)]
-              : images.filter((item) => item.includes(type)),
+              : [getRandomImageByType(type)],
           vendorCode: faker.string.numeric(4),
           inStock: faker.string.numeric(2),
           isBestseller: faker.datatype.boolean(),
