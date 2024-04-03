@@ -32,9 +32,13 @@
 <img src="https://github.com/devicons/devicon/blob/master/icons/axios/axios-plain.svg" title="axios" alt="axios" width="40" height="40"/>
 <img src="https://raw.githubusercontent.com/nodemailer/nodemailer/master/assets/nm_logo_200x136.png" title="nodemailer" alt="nodemailer" width="60" height="40"/>
 <img src="https://github.com/ArthurMur/threads/assets/122103695/e500fbdc-0f55-40a6-bc54-2f9b39e6e104" title="jwt" alt="jwt" width="40" height="40"/>
-<img src="https://github.com/devicons/devicon/blob/master/icons/sass/sass-original.svg" title="sass/scss" alt="sass/scss" width="40" height="40"/>
+<img src="https://brandeps.com/icon-download/P/Prettier-icon-vector-02.svg" title="prettier" alt="prettier" width="60" height="40"/>
+<img src="https://brandeps.com/icon-download/E/Eslint-icon-vector-02.svg" title="eslint" alt="eslint" width="60" height="40"/>
+<img src="https://brandeps.com/logo-download/S/Stylelint-logo-vector-01.svg" title="stylelint" alt="stylelint" width="60" height="40"/>
 <img src="https://github.com/devicons/devicon/blob/master/icons/framermotion/framermotion-original.svg" title="framermotion" alt="framermotion" width="40" height="40"/>
 <img src="https://github.com/devicons/devicon/blob/master/icons/swiper/swiper-original.svg" title="swiper" alt="swiper" width="60" height="40"/>
+<img src="https://github.com/devicons/devicon/blob/master/icons/sass/sass-original.svg" title="sass/scss" alt="sass/scss" width="40" height="40"/>
+
  
 </div>
 </br>
@@ -49,9 +53,12 @@
 - [Axios](https://axios-http.com/) - библиотека для выполнения HTTP запросов.
 - [Nodemailer](https://nodemailer.com/) - модуль Node.js для отправки электронной почты.
 - [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) - библиотека для создания и проверки JWT.
-- [Sass](https://sass-lang.com/) - препроцессор CSS.
+- [ESLint](https://eslint.org/) - инструмент статического анализа кода для идентификации проблемных образцов в коде.
+- [Prettier](https://prettier.io/) - инструмент форматирования кода, который автоматически приводит код к единообразному стилю.
+- [Stylelint](https://stylelint.io/) - инструмент для проверки CSS на соответствие стандартам и синтаксису, а также для поиска ошибок в коде стилей.
 - [Framer Motion](https://www.framer.com/motion/) - библиотека анимаций для React.
-- [Swiper](https://swiperjs.com/) - библиотека для создания слайдеров с поддержкой сенсорных жестов.- 
+- [Swiper](https://swiperjs.com/) - библиотека для создания слайдеров с поддержкой сенсорных жестов.
+- [Sass](https://sass-lang.com/) - препроцессор CSS.
 
 ## Установка и запуск
 1. Установите зависимости с помощью команды:
