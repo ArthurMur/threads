@@ -122,17 +122,20 @@ const Menu = () => {
         <button
           className={`btn-reset nav-menu__close ${menuIsOpen ? 'open' : ''}`}
           onClick={handleCloseMenu}
+          aria-label='Close menu'
         />
         <div className={`nav-menu__lang ${menuIsOpen ? 'open' : ''}`}>
           <button
             className={`btn-reset nav-menu__lang__btn ${lang === 'ru' ? 'lang-active' : ''}`}
             onClick={handleSwitchLangToRu}
+            aria-label='Lang to ru'
           >
             RU
           </button>
           <button
             className={`btn-reset nav-menu__lang__btn ${lang === 'en' ? 'lang-active' : ''}`}
             onClick={handleSwitchLangToEn}
+            aria-label='Lang to en'
           >
             EN
           </button>
@@ -143,6 +146,7 @@ const Menu = () => {
               <button
                 className='btn-reset nav-menu__list__item__btn'
                 onMouseEnter={handleShowCatalogList}
+                aria-label='Catalog'
               >
                 {translations[lang].main_menu.catalog}
               </button>
@@ -196,6 +200,7 @@ const Menu = () => {
               <button
                 className='btn-reset nav-menu__list__item__btn'
                 onMouseEnter={handleShowBuyersList}
+                aria-label='Buyers'
               >
                 {translations[lang].main_menu.buyers}
               </button>
@@ -230,6 +235,7 @@ const Menu = () => {
               <button
                 className='btn-reset nav-menu__list__item__btn'
                 onMouseEnter={handleShowContactsList}
+                aria-label='Contacts'
               >
                 {translations[lang].main_menu.contacts}
               </button>

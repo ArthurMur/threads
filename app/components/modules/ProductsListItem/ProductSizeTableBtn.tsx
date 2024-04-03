@@ -26,7 +26,11 @@ const ProductSizeTableBtn = ({ sizes, type, className }: ISelectedSizes) => {
 
   // Возвращаем кнопку с обработчиком onClick
   return (
-    <button className={`btn-reset ${className}`} onClick={handleShowSizeTable}>
+    <button
+      className={`btn-reset ${className}`}
+      onClick={handleShowSizeTable}
+      aria-label='Size table'
+    >
       {translations[lang].product.size_table}
     </button>
   )

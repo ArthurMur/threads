@@ -30,6 +30,7 @@ const SearchModal = () => {
       <button
         className='btn-reset search-modal__close' // Кнопка закрытия модального окна
         onClick={handleCloseSearchModal} // Обработчик клика для закрытия окна
+        aria-label='Seacrh modal'
       />
       <h3 className='search-modal__title'>
         {translations[lang].header.search_products}{' '}

@@ -1,0 +1,43 @@
+.not_found {
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  @media (width <= 950px) {
+    padding-top: 100px;
+  }
+
+  &_bg {
+    text-align: center;
+    left: 74% !important;
+    line-height: 87%;
+    color: var(--gray7);
+    font-size: 13.75em !important;
+
+    @media (width <= 1660px) {
+      left: 70% !important;
+    }
+
+    @media (width <= 1165px) {
+      left: 70% !important;
+      font-size: 10.5em !important;
+    }
+
+    @media (width <= 950px) {
+      left: 50% !important;
+      top: 90% !important;
+    }
+
+    @media (width <= 600px) {
+      font-size: 8em !important;
+    }
+
+    @media (width <= 450px) {
+      font-size: 6em !important;
+      top: 95% !important;
+    }
+  }
+}
+
+.empty_bg {
+  background-image: url('/img/not-found.png');
+}

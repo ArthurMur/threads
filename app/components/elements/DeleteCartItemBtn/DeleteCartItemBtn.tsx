@@ -11,6 +11,7 @@ const DeleteItemBtn = ({
     className={`btn-reset cart-list__item__delete ${className}`}
     onClick={callback}
     disabled={btnDisabled}
+    aria-label='Delete'
   >
     {btnDisabled ? (
       <FontAwesomeIcon icon={faSpinner} spin color='#fff' />

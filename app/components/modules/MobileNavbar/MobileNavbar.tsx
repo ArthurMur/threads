@@ -37,6 +37,7 @@ const MobileNavbar = () => {
         <button
           className='btn-reset mobile-navbar__btn'
           onClick={handleOpenCatalogMenu}
+          aria-label='Catalog'
         >
           {translations[lang].breadcrumbs.catalog}
         </button>
@@ -52,6 +53,7 @@ const MobileNavbar = () => {
         <button
           className='btn-reset mobile-navbar__btn'
           onClick={handleOpenMenu}
+          aria-label='Menu'
         >
           {translations[lang].common.more}
         </button>

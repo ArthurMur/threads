@@ -34,7 +34,11 @@ const ProductSizesItem = ({
         products={currentCartItems}
         withCartIcon={false}
       />
-      <button className='btn-reset' onClick={handleSelectSize}>
+      <button
+        className='btn-reset'
+        onClick={handleSelectSize}
+        aria-label='Size'
+      >
         {/*Отображаем размер в верхнем регистре*/}
         {currentSize[0].toLocaleUpperCase()}
       </button>
