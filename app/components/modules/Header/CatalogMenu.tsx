@@ -53,7 +53,6 @@ const CatalogMenu = () => {
         translations[lang].comparison['t-shirts'],
         translations[lang].comparison['long-sleeves'],
         translations[lang].comparison.hoodie,
-        translations[lang].comparison.outerwear,
       ],
       handler: handleShowClothList,
     },
@@ -63,7 +62,6 @@ const CatalogMenu = () => {
       items: [
         translations[lang].comparison.bags,
         translations[lang].comparison.headdress,
-        translations[lang].comparison.umbrella,
       ],
       handler: handleShowAccessoriesList,
     },

@@ -88,11 +88,6 @@ const Menu = () => {
       text: translations[lang].comparison.hoodie,
       href: '/catalog/cloth?offset=0&type=hoodie',
     },
-    {
-      id: 4,
-      text: translations[lang].comparison.outerwear,
-      href: '/catalog/cloth?offset=0&type=outerwear',
-    },
   ]
 
   const accessoriesLinks = [
@@ -105,11 +100,6 @@ const Menu = () => {
       id: 2,
       text: translations[lang].comparison.headdress,
       href: '/catalog/accessories?offset=0&type=headdress',
-    },
-    {
-      id: 3,
-      text: translations[lang].comparison.umbrella,
-      href: '/catalog/accessories?offset=0&type=umbrella',
     },
   ]
 
