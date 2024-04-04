@@ -19,6 +19,10 @@
     inset: 0;
     backdrop-filter: blur(12px);
     border-radius: var(--border-radius);
+
+    @media (width <= 890px) {
+      display: none;
+    }
   }
 
   @media (width <= 1070px) {
@@ -52,7 +56,7 @@
 
   @media (width <= 800px) {
     top: 50%;
-    height: 700px;
+    height: 500px;
   }
 
   &__close {
@@ -89,7 +93,7 @@
     align-items: center;
 
     @media (width <= 890px) {
-      top: 470px;
+      top: 515px;
       right: 15px;
     }
 
@@ -113,6 +117,9 @@
 
     @media (width <= 890px) {
       align-self: center;
+      position: absolute;
+      margin-top: 60px;
+      z-index: 5;
     }
 
     @media (width <= 380px) {
@@ -205,7 +212,7 @@
     flex-direction: column;
 
     @media (width <= 890px) {
-      margin-top: 50px;
+      padding-top: 480px;
       backdrop-filter: blur(12px);
     }
 

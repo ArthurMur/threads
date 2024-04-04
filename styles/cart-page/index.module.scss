@@ -56,6 +56,8 @@
 
       @media (width <= 1000px) {
         min-width: 352px;
+        position: relative;
+        top: 0;
       }
 
       @media (width <= 430px) {
@@ -276,7 +278,6 @@
     }
 
     @media (width <= 740px) {
-      margin-bottom: 32px;
       text-align: center;
     }
 

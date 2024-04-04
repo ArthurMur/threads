@@ -15,6 +15,10 @@
   overflow: hidden;
   margin: 0;
   padding: 0;
+
+  @media (width <= 890px) {
+    height: 380px;
+  }
 }
 
 .slick-list:focus {
