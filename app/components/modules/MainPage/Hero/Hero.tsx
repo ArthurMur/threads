@@ -1,4 +1,5 @@
 'use client'
+import { useEffect } from 'react'
 import { useLang } from '@/hooks/useLang'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Swiper as SwiperType } from 'swiper/types'
@@ -11,9 +12,15 @@ import img2 from '@/../public/img/tshirt2.png'
 import img3 from '@/../public/img/tshirt3.png'
 import HeroSlide from './HeroSlide'
 import ProductSubtitle from '@/components/elements/ProductSubtitle/ProductSubtitle'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 const Hero = () => {
   const { lang, translations } = useLang()
+
+  useEffect(() => {
+    AOS.init()
+  }, [])
 
   const slides = [
     {
@@ -70,7 +77,11 @@ const Hero = () => {
           ))}
         </Swiper>
         <ProductSubtitle />
-        <h2 className={styles.hero__title}>
+        <h2
+          className={styles.hero__title}
+          data-aos='zoom-in'
+          data-aos-duration='2000'
+        >
           <span className={styles.hero__title__text}>
             {translations[lang].main_page.hero_title} {/* Заголовок слайда */}
           </span>

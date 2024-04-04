@@ -1,7 +1,10 @@
-import React from 'react'
+'use client'
+import React, { useEffect } from 'react'
 import styles from '@/../styles/product-subtitle/index.module.scss'
 import { useLang } from '@/hooks/useLang'
 import { IProductSubtitleProps } from '../../../../types/elements'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 export default function ProductSubtitle({
   subtitleClassName,
@@ -9,10 +12,15 @@ export default function ProductSubtitle({
 }: IProductSubtitleProps) {
   const { lang, translations } = useLang()
   const descriptionSlicePosition = lang == 'ru' ? 5 : 2
+  useEffect(() => {
+    AOS.init()
+  }, [])
 
   return (
     <div
       className={`${styles.product_subtitle__subtitle} ${subtitleClassName}`}
+      data-aos='fade-right'
+      data-aos-duration='2000'
     >
       <div
         className={`${styles.product_subtitle__subtitle__rect} ${subtitleRectClassName}`}

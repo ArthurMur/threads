@@ -1,9 +1,13 @@
 /* eslint-disable indent */
+'use client'
+import { useEffect } from 'react'
+import Image from 'next/image'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import { useLang } from '@/hooks/useLang'
 import { IProductsListItemProps } from '@/../types/modules'
 import styles from '@/../styles/product-list-item/index.module.scss'
 import ProductSubtitle from '@/components/elements/ProductSubtitle/ProductSubtitle'
-import Image from 'next/image'
 import {
   addOverflowHiddenToBody,
   formatPrice,
@@ -40,23 +44,26 @@ const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
     addProductToCartBySizeTable(item, setAddToCartSpinner, 1)
   }
 
+  useEffect(() => {
+    AOS.init()
+  }, [])
+
   return (
     <>
       {item.characteristics.collection === 'line' &&
       item.type === 't-shirts' ? (
-        <li className={styles.list__item_ad} onClick={handleShowQuickViewModal}>
+        <li
+          className={styles.list__item_ad}
+          onClick={handleShowQuickViewModal}
+          data-aos='fade-up'
+          data-aos-duration='1000'
+        >
           <ProductSubtitle
             subtitleClassName={styles.list__item_ad__subtitle}
             subtitleRectClassName={styles.list__item_ad__subtitle__rect}
           />
           <div className={styles.list__item_ad__img}>
-            <Image
-              src={item.images[0]}
-              alt={item.name}
-              sizes='auto'
-              fill
-              objectFit='contain'
-            />
+            <Image src={item.images[0]} alt={item.name} sizes='auto' fill />
           </div>
           <p className={styles.list__item_ad__title}>
             <span>
@@ -73,7 +80,12 @@ const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
           </p>
         </li>
       ) : (
-        <li className={styles.list__item} onClick={handleShowQuickViewModal}>
+        <li
+          className={styles.list__item}
+          onClick={handleShowQuickViewModal}
+          data-aos='fade-up'
+          data-aos-duration='1000'
+        >
           {title ? (
             <span
               className={`${styles.list__item__label} ${
@@ -102,15 +114,13 @@ const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
             />
           </div>
           <div className={styles.list__item__img}>
-            <Image
-              src={item.images[0]}
-              alt={item.name}
-              sizes='auto'
-              fill
-              objectFit='contain'
-            />
+            <Image src={item.images[0]} alt={item.name} sizes='auto' fill />
           </div>
-          <div className={styles.list__item__inner}>
+          <div
+            className={styles.list__item__inner}
+            data-aos='fade-left'
+            data-aos-duration='1200'
+          >
             <h3 className={styles.list__item__title}>{item.name}</h3>
             <ProductAvailable
               vendorCode={item.vendorCode}
