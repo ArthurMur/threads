@@ -5,17 +5,11 @@
   height: 820px;
   padding-top: 150px;
   padding-bottom: 200px;
-  background: radial-gradient(
-      112.11% 111.8% at 100% 0%,
-      var(--purple3) 0%,
-      rgb(64 117 255 / 0%) 100%
-    ),
-    radial-gradient(
-      111.72% 111.46% at 27% 0%,
-      var(--purple3) 0%,
-      rgb(22 217 166 / 0%) 100%
-    ),
-    var(--dark);
+  background: linear-gradient(
+    180deg,
+    rgb(78 3 163 / 70.1%) 0%,
+    rgb(10 11 13 / 100%) 90%
+  );
 
   @media (width <= 1460px) {
     height: 680px;
