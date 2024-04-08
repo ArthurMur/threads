@@ -9,7 +9,10 @@ import {
   openMenu,
 } from '@/context/modals'
 import { useLang } from '@/hooks/useLang'
-import { addOverflowHiddenToBody } from '@/lib/utils/common'
+import {
+  addOverflowHiddenToBody,
+  removeOverflowHiddenFromBody,
+} from '@/lib/utils/common'
 import CatalogMenu from '../Header/CatalogMenu'
 import { useCartByAuth } from '@/hooks/useCartByAuth'
 import { useUnit } from 'effector-react'
@@ -22,6 +25,7 @@ const MobileNavbar = () => {
 
   const handleToggleMenu = () => {
     if (isMenuOpen) {
+      removeOverflowHiddenFromBody()
       closeMenu()
     } else {
       addOverflowHiddenToBody()
@@ -32,6 +36,7 @@ const MobileNavbar = () => {
 
   const handleToggleCatalogMenu = () => {
     if (isCatalogMenuOpen) {
+      removeOverflowHiddenFromBody()
       closeCatalogMenu()
     } else {
       addOverflowHiddenToBody('0')
