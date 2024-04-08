@@ -3,14 +3,14 @@
   width: 100%;
   z-index: 13;
   border-bottom: 1px solid var(--gray4);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
   background-color: var(--background);
   box-shadow: rgb(0 0 0 / 35%) 0 5px 15px;
 }
 
 .header__container {
-  padding-top: 28px !important;
-  padding-bottom: 28px !important;
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,9 +20,7 @@
   user-select: none;
   position: absolute;
   left: 50%;
-  top: 8px;
   transform: translateX(-65%);
-  min-height: 65px;
   display: flex;
   align-items: center;
 }

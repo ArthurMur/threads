@@ -18,6 +18,8 @@ const CatalogMenu = () => {
   const [showAccessoriesList, setShowAccessoriesList] = useState(false) // Состояние для отображения списка аксессуаров
   const [activeListId, setActiveListId] = useState(0) // Состояние для отслеживания активного списка
   const { lang, translations } = useLang() // Получение текущего языка и переводов
+  const [startTouchX, setStartTouchX] = useState<number | null>(null) // Начальная точка касания
+  const [isSwiping, setIsSwiping] = useState(false) // Флаг для отслеживания свайпа
   const { itemVariants, sideVariants, popupZIndex } = useMenuAnimation(
     11,
     catalogMenuIsOpen
@@ -45,6 +47,30 @@ const CatalogMenu = () => {
 
   const isActiveList = (id: number) => activeListId === id // Функция для проверки активности списка по id
 
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    setStartTouchX(e.touches[0].clientX) // Сохранение начальной точки касания
+  }
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (startTouchX !== null) {
+      const touchMoveX = e.touches[0].clientX
+      const deltaX = touchMoveX - startTouchX
+      if (deltaX < -50) {
+        // Если свайп влево достаточно длинный
+        setIsSwiping(true) // Установка флага свайпа
+      }
+    }
+  }
+
+  const handleTouchEnd = () => {
+    if (isSwiping) {
+      // Если был свайп влево
+      handleCloseMenu() // Закрытие меню
+      setIsSwiping(false) // Сброс флага свайпа
+    }
+    setStartTouchX(null) // Сброс начальной точки касания
+  }
+
   const items = [
     {
       name: translations[lang].main_menu.cloth,
@@ -67,7 +93,13 @@ const CatalogMenu = () => {
     },
   ]
   return (
-    <div className='catalog-menu' style={{ zIndex: popupZIndex }}>
+    <div
+      className='catalog-menu'
+      style={{ zIndex: popupZIndex }}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       {/* Обертка для анимации при появлении и исчезновении */}
       <AnimatePresence>
         {/* Проверка открытости меню */}

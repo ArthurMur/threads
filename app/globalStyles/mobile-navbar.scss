@@ -3,7 +3,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 20px 24px;
+  padding: 10px 20px;
   background-color: var(--dark);
   display: flex;
   align-items: flex-end;
@@ -45,12 +45,15 @@
 
   &:last-child {
     background-image: url('/img/more.svg');
-    background-position: top 13px center;
+  }
+
+  @media (width <= 450px) {
+    height: 47px;
   }
 }
 
 @media (width <= 450px) {
   .mobile-navbar {
-    padding: 10px 15px;
+    padding: 5px 15px;
   }
 }

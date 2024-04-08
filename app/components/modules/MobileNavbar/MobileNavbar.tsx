@@ -1,6 +1,8 @@
 'use client'
 import Link from 'next/link'
 import {
+  $catalogMenuIsOpen,
+  $menuIsOpen,
   closeCatalogMenu,
   closeMenu,
   openCatalogMenu,
@@ -10,21 +12,32 @@ import { useLang } from '@/hooks/useLang'
 import { addOverflowHiddenToBody } from '@/lib/utils/common'
 import CatalogMenu from '../Header/CatalogMenu'
 import { useCartByAuth } from '@/hooks/useCartByAuth'
+import { useUnit } from 'effector-react'
 
 const MobileNavbar = () => {
   const { lang, translations } = useLang()
   const currentCartByAuth = useCartByAuth()
+  const isMenuOpen = useUnit($menuIsOpen)
+  const isCatalogMenuOpen = useUnit($catalogMenuIsOpen)
 
-  const handleOpenMenu = () => {
-    addOverflowHiddenToBody()
-    openMenu()
-    closeCatalogMenu()
+  const handleToggleMenu = () => {
+    if (isMenuOpen) {
+      closeMenu()
+    } else {
+      addOverflowHiddenToBody()
+      openMenu()
+      closeCatalogMenu()
+    }
   }
 
-  const handleOpenCatalogMenu = () => {
-    addOverflowHiddenToBody('0')
-    openCatalogMenu()
-    closeMenu()
+  const handleToggleCatalogMenu = () => {
+    if (isCatalogMenuOpen) {
+      closeCatalogMenu()
+    } else {
+      addOverflowHiddenToBody('0')
+      openCatalogMenu()
+      closeMenu()
+    }
   }
 
   return (
@@ -36,7 +49,7 @@ const MobileNavbar = () => {
         </Link>
         <button
           className='btn-reset mobile-navbar__btn'
-          onClick={handleOpenCatalogMenu}
+          onClick={handleToggleCatalogMenu}
           aria-label='Catalog'
         >
           {translations[lang].breadcrumbs.catalog}
@@ -52,7 +65,7 @@ const MobileNavbar = () => {
         </Link>
         <button
           className='btn-reset mobile-navbar__btn'
-          onClick={handleOpenMenu}
+          onClick={handleToggleMenu}
           aria-label='Menu'
         >
           {translations[lang].common.more}
