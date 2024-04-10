@@ -1,11 +1,25 @@
 .header {
   position: fixed;
-  width: 100%;
+  width: calc(100% - 20px);
+  top: 10px;
+  left: 10px;
   z-index: 13;
-  border-bottom: 1px solid var(--gray4);
-  backdrop-filter: blur(20px);
-  background-color: var(--background);
+  outline: 1px solid var(--gray4);
   box-shadow: rgb(0 0 0 / 35%) 0 5px 15px;
+  border-radius: var(--border-radius);
+
+  &::before {
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backdrop-filter: blur(20px);
+    background-color: var(--background);
+    border-radius: var(--border-radius);
+    z-index: -1;
+  }
 }
 
 .header__container {

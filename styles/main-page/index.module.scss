@@ -108,7 +108,9 @@
         right: 27px;
         padding: 12px;
         border-radius: var(--border-radius);
-        background-color: var(--gray8);
+        backdrop-filter: blur(20px);
+        background-color: var(--background2);
+        outline: 1px solid var(--gray4);
         transition:
           opacity 0.2s ease-in-out,
           visibility 0.2s ease-in-out;
