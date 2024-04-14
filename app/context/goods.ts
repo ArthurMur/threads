@@ -1,10 +1,39 @@
 'use client'
-import { Effect, createDomain, sample } from 'effector'
+import { Effect, createDomain, createEffect, sample } from 'effector'
 import { Gate, createGate } from 'effector-react'
 import { getBestsellerProductsFx, getNewProductsFx } from '../../api/main-page'
 import { IProduct } from '../../types/common'
 import { loadOneProductFx } from '../../api/goods'
-import { ILoadOneProductFx } from '../../types/goods'
+import {
+  ILoadOneProductFx,
+  ILoadProductsByFilterFx,
+  IProducts,
+} from '../../types/goods'
+import toast from 'react-hot-toast'
+import api from '../../api/apiInstance'
+
+export const loadProductsByFilterFx = createEffect(
+  async ({
+    limit,
+    offset,
+    category,
+    isCatalog,
+    additionalParam,
+  }: ILoadProductsByFilterFx) => {
+    try {
+      const { data } = await api.get(
+        `/api/goods/filter?limit=${limit}&offset=${offset}&category=${category}&${additionalParam}${
+          isCatalog ? '&catalog=true' : ''
+        }`
+      )
+      console.log(data)
+
+      return data
+    } catch (error) {
+      toast.error((error as Error).message)
+    }
+  }
+)
 
 // Создание домена для управления состоянием и эффектами связанными с товарами
 const goods = createDomain()
@@ -16,6 +45,8 @@ export const MainPageGate = createGate()
 export const setCurrentProduct = goods.createEvent<IProduct>()
 // Загружаем один продукт
 export const loadOneProduct = goods.createEvent<ILoadOneProductFx>()
+// Загружаем продукт по фильтру
+export const loadProductsByFilter = goods.createEvent<ILoadProductsByFilterFx>()
 
 // Создание экземпляра хранилища для товаров
 const goodsStoreInstance = (effect: Effect<void, [], Error>) =>
@@ -54,4 +85,20 @@ export const $currentProduct = goods
   .on(setCurrentProduct, (_, product) => product)
   .on(loadOneProductFx.done, (_, { result }) => result.productItem)
 
-sample({ clock: loadOneProduct, to: loadOneProductFx })
+export const $products = goods
+  .createStore<IProducts>({} as IProducts)
+  .on(loadProductsByFilterFx.done, (_, { result }) => result)
+
+sample({
+  clock: loadOneProduct,
+  source: $currentProduct,
+  fn: (_, data) => data,
+  target: loadOneProductFx,
+})
+
+sample({
+  clock: loadProductsByFilter,
+  source: $products,
+  fn: (_, data) => data,
+  target: loadProductsByFilterFx,
+})

@@ -62,7 +62,7 @@ const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
             subtitleClassName={styles.list__item_ad__subtitle}
             subtitleRectClassName={styles.list__item_ad__subtitle__rect}
           />
-          <div className={styles.list__item_ad__img}>
+          <div className={styles.list__item_ad__img} data-aos='fade-right'>
             <Image src={item.images[0]} alt={item.name} sizes='auto' fill />
           </div>
           <p className={styles.list__item_ad__title}>
@@ -114,7 +114,14 @@ const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
             />
           </div>
           <div className={styles.list__item__img}>
-            <Image src={item.images[0]} alt={item.name} sizes='auto' fill />
+            <Image
+              src={item.images[0]}
+              alt={item.name}
+              sizes='auto'
+              fill
+              data-aos='flip-left'
+              data-aos-duration='1500'
+            />
           </div>
           <div
             className={styles.list__item__inner}

@@ -197,3 +197,57 @@ export const showCountMessage = (count: string, lang: string) => {
 
   return lang === 'ru' ? 'товаров' : 'items'
 }
+
+// Функция для проверки валидности параметра смещения ("offset").
+// Возвращает true, если "offset" существует, не является NaN и больше или равен нулю.
+export const checkOffsetParam = (offset: string | string[] | undefined) =>
+  offset && !isNaN(+offset) && +offset >= 0
+
+// Функция для получения параметров запроса URL.
+export const getSearchParamsUrl = () => {
+  // Получаем строку параметров из текущего URL.
+  const paramsString = window.location.search
+  // Создаем объект URLSearchParams из строки параметров.
+  const urlParams = new URLSearchParams(paramsString)
+
+  return urlParams
+}
+
+// Функция для обновления параметра запроса URL.
+// Обновляет параметр с заданным ключом на заданное значение и обновляет URL, соответственно обновляя историю браузера.
+export const updateSearchParam = (
+  key: string,
+  value: string | number,
+  pathname: string
+) => {
+  // Получаем текущие параметры запроса URL.
+  const urlParams = getSearchParamsUrl()
+  // Устанавливаем значение заданного ключа в параметрах запроса.
+  urlParams.set(key, `${value}`)
+  // Формируем новый путь с обновленными параметрами запроса.
+  const newPath = `${pathname}?${urlParams.toString()}`
+  // Обновляем URL и историю браузера.
+  window.history.pushState({ path: newPath }, '', newPath)
+}
+
+// Функция для проверки валидности параметра цены ("price").
+// Возвращает true, если "price" существует, не является NaN, больше или равен нулю и меньше или равен 10000.
+export const checkPriceParam = (price: number) =>
+  price && !isNaN(price) && price >= 0 && price <= 10000
+
+// Функция для получения проверенного массива параметров из строки.
+// Принимает строку ("param"), декодирует её из URI и пытается распарсить как JSON.
+// Если это успешно и результат является массивом с элементами, возвращает этот массив, иначе возвращает false.
+export const getCheckedArrayParam = (param: string) => {
+  try {
+    // Пытаемся распарсить строку как JSON и декодируем её из URI.
+    const sizesArr = JSON.parse(decodeURIComponent(param))
+
+    // Проверяем, является ли результат массивом и содержит ли он элементы.
+    if (Array.isArray(sizesArr) && sizesArr.length) {
+      return sizesArr
+    }
+  } catch (error) {
+    return false
+  }
+}
