@@ -99,7 +99,12 @@ const Menu = () => {
     {
       id: 2,
       text: translations[lang].comparison.headdress,
-      href: '/catalog/accessories?offset=0&type=headdress',
+      href: '/catalog/accessories?offset=0&type=caps',
+    },
+    {
+      id: 3,
+      text: translations[lang].comparison.scarfs,
+      href: '/catalog/accessories?offset=0&type=scarfs',
     },
   ]
 

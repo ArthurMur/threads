@@ -14,7 +14,7 @@ import {
   isItemInList,
 } from '@/lib/utils/common'
 import ProductLabel from './ProductLabel'
-import ProductItemActionBtn from '@/components/elements/ProductItemActionBtn/ProductItemActionBtn'
+// import ProductItemActionBtn from '@/components/elements/ProductItemActionBtn/ProductItemActionBtn'
 import ProductAvailable from '@/components/elements/ProductAvailable/ProductAvailable'
 import { showQuickViewModal } from '@/context/modals'
 import { setCurrentProduct } from '@/context/goods'
@@ -55,7 +55,7 @@ const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
         <li
           className={styles.list__item_ad}
           onClick={handleShowQuickViewModal}
-          data-aos='fade-up'
+          data-aos='zoom-in'
           data-aos-duration='1000'
         >
           <ProductSubtitle
@@ -83,7 +83,7 @@ const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
         <li
           className={styles.list__item}
           onClick={handleShowQuickViewModal}
-          data-aos='fade-up'
+          data-aos='zoom-in'
           data-aos-duration='1000'
         >
           {title ? (
@@ -103,16 +103,12 @@ const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
           ) : (
             <ProductLabel isBestseller={item.isBestseller} isNew={item.isNew} />
           )}
-          <div className={styles.list__item__actions}>
+          {/* <div className={styles.list__item__actions}>
             <ProductItemActionBtn
               text={translations[lang].product.add_to_favorites}
               iconClass={'actions__btn_favorite'}
             />
-            <ProductItemActionBtn
-              text={translations[lang].product.add_to_comparison}
-              iconClass={'actions__btn_comparison'}
-            />
-          </div>
+          </div> */}
           <div className={styles.list__item__img}>
             <Image
               src={item.images[0]}
@@ -125,7 +121,7 @@ const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
           </div>
           <div
             className={styles.list__item__inner}
-            data-aos='fade-left'
+            data-aos='flip-up'
             data-aos-duration='1200'
           >
             <h3 className={styles.list__item__title}>{item.name}</h3>
