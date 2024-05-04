@@ -1,18 +1,19 @@
 'use client'
 import { useEffect } from 'react'
+import AOS from 'aos'
 import { useLang } from '@/hooks/useLang'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Swiper as SwiperType } from 'swiper/types'
 import { EffectCoverflow, Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
-import styles from '@/../styles/main-page/index.module.scss'
 import img1 from '@/../public/img/tshirt1.png'
 import img2 from '@/../public/img/tshirt2.png'
 import img3 from '@/../public/img/tshirt3.png'
 import HeroSlide from './HeroSlide'
 import ProductSubtitle from '@/components/elements/ProductSubtitle/ProductSubtitle'
-import AOS from 'aos'
+import productSubtitleStyles from '@/../styles/product-subtitle/index.module.scss'
+import styles from '@/../styles/main-page/index.module.scss'
 import 'aos/dist/aos.css'
 
 const Hero = () => {
@@ -76,7 +77,12 @@ const Hero = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-        <ProductSubtitle />
+        <ProductSubtitle
+          subtitleClassName={productSubtitleStyles.product_subtitle__subtitle}
+          subtitleRectClassName={
+            productSubtitleStyles.product_subtitle__subtitle__rect
+          }
+        />
         <h2
           className={styles.hero__title}
           data-aos='zoom-in'

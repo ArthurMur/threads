@@ -6,15 +6,13 @@ export interface IProductsPage {
 }
 
 export interface ICatalogCategoryOptions {
-  rootCategoryOptions?: {
+  catalogCategoryOptions?: {
     id: number
     title: string
     href: string
   }[]
   clothCategoryOptions?: ICategoryOption[]
   accessoryCategoryOptions?: ICategoryOption[]
-  officeCategoryOptions?: ICategoryOption[]
-  souvenirsCategoryOptions?: ICategoryOption[]
 }
 
 export interface ICategoryOption {

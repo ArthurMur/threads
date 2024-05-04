@@ -1,7 +1,13 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
-const CatalogMenuList = ({ items }: { items: string[] }) => (
+const CatalogMenuList = ({
+  items,
+  onClick,
+}: {
+  items: string[]
+  onClick: () => void
+}) => (
   <motion.ul // Элемент списка с анимацией
     initial={{ opacity: 0 }} // Начальное состояние анимации
     animate={{ opacity: 1 }} // Анимированное состояние
@@ -17,6 +23,7 @@ const CatalogMenuList = ({ items }: { items: string[] }) => (
         <Link // Компонент для создания ссылок
           href='/catalog'
           className='nav-menu__accordion__item__list__item__link'
+          onClick={onClick}
         >
           {title}
         </Link>

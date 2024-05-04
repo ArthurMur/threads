@@ -63,6 +63,39 @@ export const useProductFilters = (
     setCurrentPage(+(searchParams.offset || 0))
   }, []) // Выполняем эффект только при монтировании компонента
 
+  // Обработчик изменения номера страницы
+  const handlePageChange = ({ selected }: { selected: number }) => {
+    // Получение параметров поиска из URL
+    const urlParams = getSearchParamsUrl()
+
+    // Удаление параметра "offset" из URL
+    urlParams.delete('offset')
+
+    // Загрузка товаров в соответствии с фильтром
+    loadProductsByFilter({
+      // Установка лимита товаров на страницу
+      limit: 12 * selected + 12,
+      // Установка смещения для выборки товаров
+      offset: selected * 12,
+      // Добавление дополнительных параметров в URL
+      additionalParam: urlParams.toString(),
+      // Указание, что загрузка товаров происходит в каталоге
+      isCatalog,
+      // Указание категории товаров
+      category,
+    })
+
+    // Обновление параметра "offset" в URL
+    updateSearchParam('offset', selected, pathname)
+    // Установка номера текущей страницы
+    setCurrentPage(selected)
+  }
+
+  const handleApplyFiltersWithCategory = (categoryType: string) => {
+    updateSearchParam('type', categoryType, pathname)
+    handlePageChange({ selected: 0 })
+  }
+
   // Конфигурация пагинации
   const paginationProps = {
     containerClassName: `list-reset ${styles.catalog__bottom__list}`, // Классы для контейнера пагинации
@@ -84,5 +117,7 @@ export const useProductFilters = (
     products,
     pagesCount,
     productsSpinner,
+    handlePageChange,
+    handleApplyFiltersWithCategory,
   }
 }

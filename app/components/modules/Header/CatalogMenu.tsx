@@ -178,10 +178,16 @@ const CatalogMenu = () => {
                       {!isMedia450 && (
                         <AnimatePresence>
                           {isCurrentList(showClothList, 1) && (
-                            <CatalogMenuList items={items} />
+                            <CatalogMenuList
+                              items={items}
+                              onClick={handleCloseMenu}
+                            />
                           )}
                           {isCurrentList(showAccessoriesList, 2) && (
-                            <CatalogMenuList items={items} />
+                            <CatalogMenuList
+                              items={items}
+                              onClick={handleCloseMenu}
+                            />
                           )}
                         </AnimatePresence>
                       )}
@@ -200,6 +206,7 @@ const CatalogMenu = () => {
                                 <Link
                                   href='/catalog'
                                   className='nav-menu__accordion__item__list__item__link'
+                                  onClick={handleCloseMenu}
                                 >
                                   {title}
                                 </Link>
