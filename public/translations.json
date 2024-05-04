@@ -39,6 +39,7 @@
       "catalog": "Catalog",
       "buyers": "For buyers",
       "contacts": "Contacts",
+      "accessories": "Accessories",
       "cloth": "Cloth",
       "all": "All catalog",
       "about": "About",
@@ -70,6 +71,7 @@
       "privacy_policy": "Privacy policy"
     },
     "main_page": {
+      "category_accessories": "Accessories",
       "hero_hidden_title": "Clothing store thread",
       "hero_title": "thread",
       "product_subtitle_description": "Be in style",
@@ -291,6 +293,7 @@
       "privacy_policy": "Политика конфиденциальности"
     },
     "main_page": {
+      "category_accessories": "Аксессуары",
       "hero_hidden_title": "Магазин одежды thread",
       "hero_title": "thread",
       "product_subtitle_description": "Будь на стиле",
