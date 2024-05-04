@@ -14,7 +14,7 @@ import {
   isItemInList,
 } from '@/lib/utils/common'
 import ProductLabel from './ProductLabel'
-import ProductItemActionBtn from '@/components/elements/ProductItemActionBtn/ProductItemActionBtn'
+// import ProductItemActionBtn from '@/components/elements/ProductItemActionBtn/ProductItemActionBtn'
 import ProductAvailable from '@/components/elements/ProductAvailable/ProductAvailable'
 import { showQuickViewModal } from '@/context/modals'
 import { setCurrentProduct } from '@/context/goods'
@@ -55,14 +55,14 @@ const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
         <li
           className={styles.list__item_ad}
           onClick={handleShowQuickViewModal}
-          data-aos='fade-up'
+          data-aos='zoom-in'
           data-aos-duration='1000'
         >
           <ProductSubtitle
             subtitleClassName={styles.list__item_ad__subtitle}
             subtitleRectClassName={styles.list__item_ad__subtitle__rect}
           />
-          <div className={styles.list__item_ad__img}>
+          <div className={styles.list__item_ad__img} data-aos='fade-right'>
             <Image src={item.images[0]} alt={item.name} sizes='auto' fill />
           </div>
           <p className={styles.list__item_ad__title}>
@@ -83,7 +83,7 @@ const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
         <li
           className={styles.list__item}
           onClick={handleShowQuickViewModal}
-          data-aos='fade-up'
+          data-aos='zoom-in'
           data-aos-duration='1000'
         >
           {title ? (
@@ -103,22 +103,25 @@ const ProductsListItem = ({ item, title }: IProductsListItemProps) => {
           ) : (
             <ProductLabel isBestseller={item.isBestseller} isNew={item.isNew} />
           )}
-          <div className={styles.list__item__actions}>
+          {/* <div className={styles.list__item__actions}>
             <ProductItemActionBtn
               text={translations[lang].product.add_to_favorites}
               iconClass={'actions__btn_favorite'}
             />
-            <ProductItemActionBtn
-              text={translations[lang].product.add_to_comparison}
-              iconClass={'actions__btn_comparison'}
-            />
-          </div>
+          </div> */}
           <div className={styles.list__item__img}>
-            <Image src={item.images[0]} alt={item.name} sizes='auto' fill />
+            <Image
+              src={item.images[0]}
+              alt={item.name}
+              sizes='auto'
+              fill
+              data-aos='flip-left'
+              data-aos-duration='1500'
+            />
           </div>
           <div
             className={styles.list__item__inner}
-            data-aos='fade-left'
+            data-aos='flip-up'
             data-aos-duration='1200'
           >
             <h3 className={styles.list__item__title}>{item.name}</h3>

@@ -1,7 +1,7 @@
 'use client'
 import { Logo } from '@/components/elements/Logo/Logo'
 import { useLang } from '@/hooks/useLang'
-import Link from 'next/link'
+// import Link from 'next/link'
 import '@/globalStyles/header.scss'
 import {
   addOverflowHiddenToBody,
@@ -107,18 +107,12 @@ const Header = () => {
               aria-label='Search'
             />
           </li>
-          <li className='header__links__item'>
+          {/* <li className='header__links__item'>
             <Link
               href='/favorites'
               className='header__links__item__btn header__links__item__btn--favorites'
             />
-          </li>
-          <li className='header__links__item'>
-            <Link
-              className='header__links__item__btn header__links__item__btn--compare'
-              href='/comparison'
-            />
-          </li>
+          </li> */}
           <li className='header__links__item'>
             <CartPopup />
           </li>

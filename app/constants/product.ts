@@ -8,3 +8,5 @@ export const productTypes = [
   'scarfs',
   'caps',
 ]
+
+export const productCategories = ['cloth', 'accessories']

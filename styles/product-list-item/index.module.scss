@@ -33,9 +33,11 @@
       font-size: 0.875em;
       font-weight: 500;
       padding: 0 8px;
+      z-index: 1;
     }
 
     &__new {
+      left: 70px;
       background-color: var(--orange);
     }
 
@@ -215,6 +217,7 @@
     &__subtitle {
       width: max-content;
       margin-bottom: 20px;
+      position: relative;
 
       &__top {
         padding-top: 5px;
@@ -225,6 +228,10 @@
       }
 
       span {
+        display: inline-block;
+        background-color: var(--white);
+        color: var(--dark-blue);
+        font-weight: 700;
         padding-left: 10px;
         padding-right: 10px;
         font-size: 2.25em;
@@ -238,6 +245,11 @@
     }
 
     &__subtitle__rect {
+      position: absolute;
+      right: 0;
+      background-image: url('/img/subtitle-rect.svg');
+      background-repeat: no-repeat;
+      background-position: center center;
       bottom: -15px;
       width: 25px;
       height: 15px;

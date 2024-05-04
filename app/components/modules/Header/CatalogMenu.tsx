@@ -76,9 +76,18 @@ const CatalogMenu = () => {
       name: translations[lang].main_menu.cloth,
       id: 1,
       items: [
-        translations[lang].comparison['t-shirts'],
-        translations[lang].comparison['long-sleeves'],
-        translations[lang].comparison.hoodie,
+        {
+          text: translations[lang].comparison['t-shirts'],
+          href: '/catalog/cloth?offset=0&type=t-shirts',
+        },
+        {
+          text: translations[lang].comparison['long-sleeves'],
+          href: '/catalog/cloth?offset=0&type=long-sleeves',
+        },
+        {
+          text: translations[lang].comparison.hoodie,
+          href: '/catalog/cloth?offset=0&type=hoodie',
+        },
       ],
       handler: handleShowClothList,
     },
@@ -86,8 +95,18 @@ const CatalogMenu = () => {
       name: translations[lang].main_menu.accessories,
       id: 2,
       items: [
-        translations[lang].comparison.bags,
-        translations[lang].comparison.headdress,
+        {
+          text: translations[lang].comparison.bags,
+          href: '/catalog/accessories?offset=0&type=bags',
+        },
+        {
+          text: translations[lang].comparison.headdress,
+          href: '/catalog/accessories?offset=0&type=caps',
+        },
+        {
+          text: translations[lang].comparison.scarfs,
+          href: '/catalog/accessories?offset=0&type=scarfs',
+        },
       ],
       handler: handleShowAccessoriesList,
     },
@@ -178,10 +197,16 @@ const CatalogMenu = () => {
                       {!isMedia450 && (
                         <AnimatePresence>
                           {isCurrentList(showClothList, 1) && (
-                            <CatalogMenuList items={items} />
+                            <CatalogMenuList
+                              items={items}
+                              onClick={handleCloseMenu}
+                            />
                           )}
                           {isCurrentList(showAccessoriesList, 2) && (
-                            <CatalogMenuList items={items} />
+                            <CatalogMenuList
+                              items={items}
+                              onClick={handleCloseMenu}
+                            />
                           )}
                         </AnimatePresence>
                       )}
@@ -192,16 +217,17 @@ const CatalogMenu = () => {
                           titleClass='btn-reset nav-menu__accordion__item__title'
                         >
                           <ul className='list-reset catalog__accordion__list'>
-                            {items.map((title, i) => (
+                            {items.map((item, i) => (
                               <li
                                 key={i}
                                 className='catalog__accordion__list__item'
                               >
                                 <Link
-                                  href='/catalog'
+                                  href={item.href}
                                   className='nav-menu__accordion__item__list__item__link'
+                                  onClick={handleCloseMenu}
                                 >
-                                  {title}
+                                  {item.text}
                                 </Link>
                               </li>
                             ))}

@@ -13,7 +13,7 @@ import ProductCounter from '../ProductsListItem/ProductCounter'
 import AddToCartBtn from '../ProductsListItem/AddToCartBtn'
 import styles from '@/../styles/quick-view-modal/index.module.scss'
 import stylesForProduct from '@/../styles/product-list-item/index.module.scss'
-import ProductItemActionBtn from '@/components/elements/ProductItemActionBtn/ProductItemActionBtn'
+// import ProductItemActionBtn from '@/components/elements/ProductItemActionBtn/ProductItemActionBtn'
 import { ICartItem } from '../../../../types/cart'
 
 const QuickViewModal = () => {
@@ -49,18 +49,13 @@ const QuickViewModal = () => {
         onClick={handleCloseModal}
         aria-label='Close'
       />
-      <div className={styles.modal__actions}>
+      {/* <div className={styles.modal__actions}>
         <ProductItemActionBtn
           text={translations[lang].product.add_to_favorites}
           iconClass={'actions__btn_favorite'}
           withTooltip={false}
         />
-        <ProductItemActionBtn
-          text={translations[lang].product.add_to_comparison}
-          iconClass={'actions__btn_comparison'}
-          withTooltip={false}
-        />
-      </div>
+      </div> */}
       <div className={styles.modal__left}>
         <QuickViewModalSlider images={images} />
       </div>
